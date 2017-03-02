@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://bl.ocks.org/mbostock/raw/4061502/88bf552c188c97c3357fe56b3fe3e43422881e0e/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style class="--apng-checked">
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.box {
+  font: 10px sans-serif;
+}
+
+.box line,
+.box rect,
+.box circle {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.box .center {
+  stroke-dasharray: 3,3;
+}
+
+.box .outlier {
+  fill: none;
+  stroke: #ccc;
+}
+
+</style>
+</head><body marginwidth="0" marginheight="0">
+<script src="./d3.v3.min.js.download"></script>
+<script src="./box.js.download"></script>
+<script>
+
+var margin = {top: 10, right: 50, bottom: 20, left: 50},
+    width = 120 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var min = Infinity,
+    max = -Infinity;
+
+var chart = d3.box()
+    .whiskers(iqr(1.5))
+    .width(width)
+    .height(height);
+
+d3.csv("morley.csv", function(error, csv) {
+  if (error) throw error;
+
+  var data = [];
+
+  csv.forEach(function(x) {
+    var e = Math.floor(x.Expt - 1),
+        r = Math.floor(x.Run - 1),
+        s = Math.floor(x.Speed),
+        d = data[e];
+    if (!d) d = data[e] = [s];
+    else d.push(s);
+    if (s > max) max = s;
+    if (s < min) min = s;
+  });
+
+  chart.domain([min, max]);
+
+  var svg = d3.select("body").selectAll("svg")
+      .data(data)
+    .enter().append("svg")
+      .attr("class", "box")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.bottom + margin.top)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .call(chart);
+
+  setInterval(function() {
+    svg.datum(randomize).call(chart.duration(1000));
+  }, 2000);
+});
+
+function randomize(d) {
+  if (!d.randomizer) d.randomizer = randomizer(d);
+  return d.map(d.randomizer);
+}
+
+function randomizer(d) {
+  var k = d3.max(d) * .02;
+  return function(d) {
+    return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
+  };
+}
+
+// Returns a function to compute the interquartile range.
+function iqr(k) {
+  return function(d, i) {
+    var q1 = d.quartiles[0],
+        q3 = d.quartiles[2],
+        iqr = (q3 - q1) * k,
+        i = -1,
+        j = d.length;
+    while (d[++i] < q1 - iqr);
+    while (d[--j] > q3 + iqr);
+    return [i, j];
+  };
+}
+
+</script>
+<svg class="box" width="120" height="500"><g transform="translate(50,10)"><line class="center" x1="10" y1="322.54364923338727" x2="10" y2="0" style="opacity: 1;"></line><rect class="box" x="0" y="82.84636367373174" width="20" height="174.5985716417664"></rect><line class="median" x1="0" y1="152.67070641094378" x2="20" y2="152.67070641094378"></line><line class="whisker" x1="0" y1="322.54364923338727" x2="20" y2="322.54364923338727" style="opacity: 1;"></line><line class="whisker" x1="0" y1="0" x2="20" y2="0" style="opacity: 1;"></line><text class="box" dy=".3em" dx="-6" x="0" y="257.4449353154981" text-anchor="end">824</text><text class="box" dy=".3em" dx="6" x="20" y="152.67070641094378" text-anchor="start">924</text><text class="box" dy=".3em" dx="-6" x="0" y="82.84636367373174" text-anchor="end">991</text><text class="whisker" dy=".3em" dx="6" x="20" y="322.54364923338727" style="opacity: 1;">761</text><text class="whisker" dy=".3em" dx="6" x="20" y="0" style="opacity: 1;">1,070</text></g></svg><svg class="box" width="120" height="500"><g transform="translate(50,10)"><line class="center" x1="10" y1="400.33179615894056" x2="10" y2="55.65028226540218" style="opacity: 1;"></line><rect class="box" x="0" y="132.8118076787623" width="20" height="158.4913614050589"></rect><line class="median" x1="0" y1="180.48564553011036" x2="20" y2="180.48564553011036"></line><line class="whisker" x1="0" y1="400.33179615894056" x2="20" y2="400.33179615894056" style="opacity: 1;"></line><line class="whisker" x1="0" y1="55.65028226540218" x2="20" y2="55.65028226540218" style="opacity: 1;"></line><text class="box" dy=".3em" dx="-6" x="0" y="291.3031690838212" text-anchor="end">791</text><text class="box" dy=".3em" dx="6" x="20" y="180.48564553011036" text-anchor="start">897</text><text class="box" dy=".3em" dx="-6" x="0" y="132.8118076787623" text-anchor="end">943</text><text class="whisker" dy=".3em" dx="6" x="20" y="400.33179615894056" style="opacity: 1;">687</text><text class="whisker" dy=".3em" dx="6" x="20" y="55.65028226540218" style="opacity: 1;">1,017</text></g></svg><svg class="box" width="120" height="500"><g transform="translate(50,10)"><line class="center" x1="10" y1="455.95669191014713" x2="10" y2="103.64998490426655" style="opacity: 1;"></line><rect class="box" x="0" y="184.01832980928108" width="20" height="110.82021915889848"></rect><line class="median" x1="0" y1="258.64829594989794" x2="20" y2="258.64829594989794"></line><line class="whisker" x1="0" y1="455.95669191014713" x2="20" y2="455.95669191014713" style="opacity: 1;"></line><line class="whisker" x1="0" y1="103.64998490426655" x2="20" y2="103.64998490426655" style="opacity: 1;"></line><text class="box" dy=".3em" dx="-6" x="0" y="294.83854896817957" text-anchor="end">788</text><text class="box" dy=".3em" dx="6" x="20" y="258.64829594989794" text-anchor="start">822</text><text class="box" dy=".3em" dx="-6" x="0" y="184.01832980928108" text-anchor="end">894</text><text class="whisker" dy=".3em" dx="6" x="20" y="455.95669191014713" style="opacity: 1;">633</text><text class="whisker" dy=".3em" dx="6" x="20" y="103.64998490426655" style="opacity: 1;">971</text></g></svg><svg class="box" width="120" height="500"><g transform="translate(50,10)"><line class="center" x1="10" y1="450.67013759610643" x2="10" y2="80.63083891273901" style="opacity: 1;"></line><rect class="box" x="0" y="163.86323543428054" width="20" height="185.9054525455704"></rect><line class="median" x1="0" y1="265.24087396804055" x2="20" y2="265.24087396804055"></line><line class="whisker" x1="0" y1="450.67013759610643" x2="20" y2="450.67013759610643" style="opacity: 1;"></line><line class="whisker" x1="0" y1="80.63083891273901" x2="20" y2="80.63083891273901" style="opacity: 1;"></line><text class="box" dy=".3em" dx="-6" x="0" y="349.76868797985094" text-anchor="end">735</text><text class="box" dy=".3em" dx="6" x="20" y="265.24087396804055" text-anchor="start">816</text><text class="box" dy=".3em" dx="-6" x="0" y="163.86323543428054" text-anchor="end">913</text><text class="whisker" dy=".3em" dx="6" x="20" y="450.67013759610643" style="opacity: 1;">639</text><text class="whisker" dy=".3em" dx="6" x="20" y="80.63083891273901" style="opacity: 1;">993</text></g></svg><svg class="box" width="120" height="500"><g transform="translate(50,10)"><line class="center" x1="10" y1="387.2512450092369" x2="10" y2="81.33202008755843" style="opacity: 1;"></line><rect class="box" x="0" y="185.9682869018217" width="20" height="118.72913557995562"></rect><line class="median" x1="0" y1="234.74491837177897" x2="20" y2="234.74491837177897"></line><line class="whisker" x1="0" y1="387.2512450092369" x2="20" y2="387.2512450092369" style="opacity: 1;"></line><line class="whisker" x1="0" y1="81.33202008755843" x2="20" y2="81.33202008755843" style="opacity: 1;"></line><text class="box" dy=".3em" dx="-6" x="0" y="304.6974224817773" text-anchor="end">778</text><text class="box" dy=".3em" dx="6" x="20" y="234.74491837177897" text-anchor="start">845</text><text class="box" dy=".3em" dx="-6" x="0" y="185.9682869018217" text-anchor="end">892</text><text class="whisker" dy=".3em" dx="6" x="20" y="387.2512450092369" style="opacity: 1;">699</text><text class="whisker" dy=".3em" dx="6" x="20" y="81.33202008755843" style="opacity: 1;">992</text></g></svg></body></html>

@@ -1,0 +1,4 @@
+months more than 3
+fs_id in (61,475,528,719,1959,3769)
+
+update income 

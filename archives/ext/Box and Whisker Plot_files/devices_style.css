@@ -1,0 +1,446 @@
+	body {
+			font-family:		Helvetica, Arial, sans-serif;
+			font-size:			10pt;
+			color:				#767676;
+			}
+			
+	.ad_full 	{ display:		block; }
+	.ad_mobile1 { display:		none;  }
+	.ad_mobile2 { display:		none;  }
+	.ad_mobile3 { display:		none;  }
+			
+
+@media all and (max-width: 850px){ 
+	
+	td.body			{ width:		500px; }
+	td.body_single	{ width:		500px; }
+	h1				{ font-size:	22pt;  }
+	h2				{ font-size:	16pt;  }
+	p.copyright		{ text-align:	center;}
+	div.advert		{ width:		480px; }
+	
+	.ad_full 	{ display:		none; }
+	.ad_mobile1 { display:		block;  }
+	.ad_mobile2 { display:		none;  }
+	.ad_mobile3 { display:		none;  }
+			
+	div.long_button_graph {
+			padding-top:		20px;
+			padding-bottom:		20px;
+			}
+	
+	div.long_button_diagram {
+			padding-top:		20px;
+			padding-bottom:		20px;
+			}
+			
+	div.long_button_map {
+			padding-top:		20px;
+			padding-bottom:		20px;
+			}
+			
+	div.long_button_table {
+			padding-top:		20px;
+			padding-bottom:		20px;
+			}
+	
+	div.long_button_other {
+			padding-top:		20px;
+			padding-bottom:		20px;
+			}
+	
+	div.left_column {
+			width:				495px;
+			margin-right:		0px;
+			font-size:			11pt;
+			}
+			
+	div.right_column {
+			width:				495px;
+			font-size:			11pt;
+			}
+			
+	div.suggest_single {
+			padding-top:		20px;
+			padding-bottom:		20px;
+			width:				300px;
+			}
+			
+	img.top_image {
+			width:				500px;
+			height:				219px;
+			}
+			
+	div.search_long_button { 
+			width:				218px;
+			padding-top:		15px;
+			padding-bottom:		15px;
+			padding-left:		10px;
+			}
+			
+	div.list_long_button { 
+			width:				218px;
+			padding-top:		15px;
+			padding-bottom:		15px;
+			}
+	
+					
+	/* Search Page */
+			
+	div.search_circle_block { 
+			width:				160px;
+			height:				200px;
+			}
+			
+	img.search_circle {
+			width:				150px;
+			height:				150px;
+			}
+
+	img.search_circle:hover {
+			margin-top:			5px;
+			width:				150px;
+			height:				150px;
+			}
+			
+	
+	/* BOOKS AND LINKS PAGE */
+	
+	div.sidebar { 
+			width:				500px;
+			height:				410px;
+			margin-left:		20px;
+			}
+	
+	div.ref_site_block { 
+			float:				left; 
+			width:				200px;
+			margin-right:		30px;
+			}
+			
+	div.sidebar_block1 { margin-top: 0px; }
+
+}
+
+
+@media all and (max-width: 630px){ 
+
+	td.body				{ width:		380px; }
+	td.body_single		{ width:		370px; }			
+	div.footer			{ height:		270px; }		
+	div.left_column		{ width:		365px; }	
+	div.right_column	{ width:		365px; }
+	p.copyright			{ margin-top:	30px;  }
+	div.advert			{ width:		350px; }
+	
+	.ad_full 			{ display:		none; }
+	.ad_mobile1			{ display:		none;  }
+	.ad_mobile2 		{ display:		block;  }
+	.ad_mobile3 		{ display:		none;  }
+	
+	div.search_long_button { 
+			width:				156px;
+			padding-top:		12px;
+			padding-bottom:		12px;
+			}
+			
+	div.list_long_button { 
+			width:				156px;
+			padding-top:		12px;
+			padding-bottom:		12px;
+			}
+
+	p.footer_button {
+			float:				left;
+			width:				150px;
+			text-align:			center;
+			padding:			10px;
+			margin-bottom:		-5px;
+			margin-left:		10px;
+			background-color:	lightgrey;
+			border-radius:		12px;
+			}
+			
+	p.footer_button_off {
+			float:				left;
+			width:				145px;
+			text-align:			center;
+			padding:			10px;
+			margin-bottom:		-5px;
+			margin-left:		10px;
+			border:				solid;
+			border-color:		lightgrey;
+			border-radius:		12px;
+			}
+	
+	img.sm_button {
+			float:				right;
+			height:				60px;
+			width:				60px;
+			margin-top:			10px;
+			}
+	
+	img.top_image {
+			width:				370px;
+			height:				162px;
+			}
+			
+	div.navi { word-spacing:	30px; }
+	
+	/* Side Navigation */
+
+	img.side_navi_top		{ width:0px; height: 0px;}
+	img.side_navi_previous	{ width:0px; height: 0px;}
+	img.side_navi_home		{ width:0px; height: 0px;}
+	img.side_navi_next		{ width:0px; height: 0px;}
+	
+			
+	/*  Donate Page */
+	
+	span.crypto { font-size:	8pt; }
+	
+	
+	/* BOOKS AND LINKS PAGE */
+	
+	div.sidebar { width: 320px; margin-left: 60px;}
+	div.sidebar_block1 { text-align: center; }
+	div.ref_site_block { margin-left: 60px; text-align: center; }
+	iframe.books { width: 450px; float: left; }
+	div.country_list { width: 450px; float: left; }
+}
+
+
+@media all and (max-width: 600px){ 
+
+	div.navi {
+			float:				none;
+			text-align:			center;
+			font-size:			12pt;
+			word-spacing:		60px;
+			}
+			
+	div.long_button_graph {
+			padding-top:		25px;
+			padding-bottom:		25px;
+			font-size:			11pt;
+			text-align:			center;
+			padding-left:		0px;
+			}
+	
+	div.long_button_diagram {
+			padding-top:		25px;
+			padding-bottom:		25px;
+			font-size:			11pt;
+			text-align:			center;
+			padding-left:		0px;
+			}
+			
+	div.long_button_map {
+			padding-top:		25px;
+			padding-bottom:		25px;
+			font-size:			11pt;
+			text-align:			center;
+			padding-left:		0px;
+			}
+			
+	div.long_button_table {
+			padding-top:		25px;
+			padding-bottom:		25px;
+			font-size:			11pt;
+			text-align:			center;
+			padding-left:		0px;
+			}
+	
+	div.long_button_other {
+			padding-top:		25px;
+			padding-bottom:		25px;
+			font-size:			11pt;
+			text-align:			center;
+			padding-left:		0px;
+			}
+			
+	div.long_button_off {
+			padding-top:		25px;
+			padding-bottom:		25px;
+			font-size:			11pt;
+			text-align:			center;
+			padding-left:		0px;
+			}
+	
+	div.circleview_sml {
+			height:				80px;
+			width:				80px;
+			margin-bottom:		20px;
+			}
+	
+	div.search_sml {
+			height:				80px;
+			width:				80px;
+			}
+			
+	div.image_view {
+			height:				0px;
+			width:				0px;
+			font-size:			1pt;
+			padding:			0px;
+			color:				white;
+			}
+			
+	img.sml_search_icon {
+			height:				40px;
+			width:				40px;
+			margin:				20px;
+			}
+			
+	img.sml_dotspage_icon {
+			height:				50px;
+			width:				50px;
+			margin:				15px;
+			}
+	
+	body { font-size:	11pt; }
+	
+	div.search_long_button { 
+			width:				158px;
+			padding-top:		17px;
+			padding-bottom:		17px;
+			font-size:			11pt;
+			}
+			
+	div.list_long_button { 
+			width:				158px;
+			padding-top:		17px;
+			padding-bottom:		17px;
+			font-size:			11pt;
+			}
+	
+	/* Search Page */
+			
+	div.search_circle_block { 
+			width:				185px;
+			height:				200px;
+			}
+			
+	img.search_circle {
+			width:				150px;
+			height:				150px;
+			}
+
+	img.search_circle:hover {
+			margin-top:			5px;
+			width:				150px;
+			height:				150px;
+			}
+	
+	/* BOOKS AND LINKS PAGE */
+	
+	div.sidebar { 
+			width:				460px;
+			height:				730px;
+			margin-left:		30px;
+			}
+}
+
+
+@media all and (max-width: 480px) {
+
+	/* BOOKS AND LINKS PAGE */
+	
+	div.sidebar { width: 320px; margin-left: 30px;}
+	iframe.books { width: 400px; }
+	div.country_list { width: 400px; }
+	
+}
+
+
+@media all and (max-width: 420px) {
+
+	div.advert			{ width:		235px; }
+	img.anatomy 		{ width:		250px; }
+	img.columngraphic	{ width:		250px; }
+	
+	.ad_full 			{ display:		none; }
+	.ad_mobile1			{ display:		none;  }
+	.ad_mobile2 		{ display:		none;  }
+	.ad_mobile3 		{ display:		block;  }
+		
+	div.navi {
+			font-size:			10pt;
+			word-spacing:		35px;
+			margin-right:		0px;
+			}
+			
+	div.anatomy	{
+			width:				250px;
+			height:				250px;
+			}
+			
+	img.top_image {
+			width:				250px;
+			height:				109px;
+			}
+	
+	a.navi				{ font-size:	10pt;  }
+	div.subtitle		{ font-size:	10pt;	}	
+	body				{ font-size:	9pt;	}
+	td.body				{ width:		250px;	}
+	td.body_single		{ width:		250px;	}		
+	div.left_column		{ width:		245px;	}		
+	div.right_column	{ width:		245px;	}
+	div.suggest_single	{ width:		245px;	}
+	
+	
+	/* Search Page */
+			
+	div.search_circle_block { 
+			width:				250px;
+			height:				220px;
+			}
+			
+	img.search_circle {
+			width:				170px;
+			height:				170px;
+			}
+
+	img.search_circle:hover {
+			margin-top:			5px;
+			width:				170px;
+			height:				170px;
+			}
+			
+	div.search_long_button { 
+			width:				230px;
+			padding-top:		12px;
+			padding-bottom:		12px;
+			font-size:			10pt;
+			margin-left:		0px;
+			margin-bottom:		10px;
+			}
+			
+	div.list_long_button { 
+			width:				230px;
+			padding-top:		12px;
+			padding-bottom:		12px;
+			font-size:			10pt;
+			margin-left:		0px;
+			}
+			
+			
+	/* BOOKS AND LINKS PAGE */
+	
+	div.sidebar { 
+			width:				250px;
+			height:				660px;
+			margin-left:		12px;
+			}
+	
+	div.ref_site_block { 
+			float:				left; 
+			width:				200px;
+			margin-left:		25px;
+			}
+			
+	div.sidebar_block1	{  font-size: 10pt; }
+	iframe.books		{ width: 250px; }
+	div.country_list	{ width: 250px; }
+}

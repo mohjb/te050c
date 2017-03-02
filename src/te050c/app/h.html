@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HtmlEngineManagement(HEMan)</title>
+    <script>
+app={
+ dcb:function(n,p){}
+
+
+ ,bldGrid:function(n,p){}
+ ,bldForm:function(n,p){}
+ ,bldForm:function(n,p){}
+ ,h:{no:{}}
+ ,jsonBldOnload:function(no,p){if(!p)p=document.body;}
+ ,loadJsonBld:function(no,prntNo,jsonBld,srvrJs){
+    var t=app.h.no={no:no,parent:prntNo,jsonBld:jsBld,srvrJs:srvrJs}}
+    ,p=app.h.no[prntNo]
+    if(!p.children)p.children=[t];else p.children.push(t);
+    }
+,bldH:function(h,p){
+/*h:{no:<int> , parent:<no> ,jsonBld:<json> , srvrJS:<string> , children:<int> }
+
+build-dom:
+    label:no , label:parent ,
+    textarea:jsonBld , textarea:srvrJS , bcc:children,
+    actions:save,delete,newChild,newBefore,newAfter
+*/
+
+}
+
+ ,did:function did(i){return document.getElementById(i);}
+ ,dce:function dce(n,p,o){//3rd param is either text, or, obj with props:t,id,styl,attribs,clss,clk,mo
+		var n=document.createElement(n);
+		if(o)
+		{var t=typeof(o)=='string'?o:(o&&o.t)
+			if(t!=undefined)
+				sys.dct(t,n);
+			if(o.id!=undefined)
+				n.id=o.id;
+			if(o.clss!=undefined)
+				n.className=o.clss;
+			if(o.styl!=undefined){
+				if(typeof(o.styl)=='string')
+					n.style.cssText=o.styl;
+				else
+					for(var i in o.styl)
+						n.style[i]=o.styl[i];}
+			if(o .attribs)
+				for(var i in o.attribs)
+					n.setAttribute(i,n[i]=o.attribs[i])
+					if(o.clk)
+						n.onclick=o.clk;
+		}//if(mo)n.mouseover=mo;
+		if(p)p.appendChild(n);return n;
+ }//dce
+ ,dct:function dct(t,p){
+		var n=document.createTextNode(t);
+		if(p)p.appendChild(n);return n;
+ }//dct
+	,dci:function dci(nm,p,o){//o obj:typ,val,chkd,id,lbl,attribs,styl,clss,chng,clk
+		var r=sys.dce('input',0,o),lbl;//0,o&&o.id,o&&o.styl,attribs,cl,clk);
+		r.name=nm;if(o)
+		{r.type=(o&&o.typ)||'text';
+			if(o.val!=undefined)r.value=o&&o.val;
+			if(o.chkd)r.checked='checked'
+				if(o.chng)
+					r.onchange=o.chng;
+			if(o.lbl)lbl=sys.dce('label',0,
+								 {	t:o.lbl
+								 ,id:o.id?o.id+'.lbl':null
+								 ,attribs:{"for":o.id}
+								 });
+		}
+		if(p){p.appendChild(r);
+			if(lbl)p.appendChild(lbl);}
+		return r;}
+
+,bld:function App_buildHtml(params,parent)/**BuildDomTree params::= 'nodeName':str
+	'id':str ,t:text ,clk:onclick­function ,chng:onchange­function
+	,a:jsobj­attributes ,s:jsobj­style ,clpsbl:string­title:collapsable
+	,c:jsarray­children: each item is recursively a params
+	; or params can be string, or array:call bldTbl ;
+	parent: domElement*/
+ {var t=App,p=params,nm=p&&p.nodeName,typ=typeof(p),typo=typ=='object',
+	arr=p instanceof Array||(p&& p.c instanceof Array);
+	try{if(!parent)parent=document.body;
+	if(!typo && !arr)return t.dct(p,parent);
+	else if(typeof(nm)!='string')return t.bldObjProps(p,parent);
+	var n=nm?t.dce(nm,0,p.t,p.id)//document.createElement(p.n)
+		:p.t!=undefined?t.dct(p.t):p;
+	if(nm.toLowerCase()=='input')n.type=(p.a?p.a.type:0)||'text';
+	if(p.name||(p.a&&p.a.name))n.name=p.name||p.a.name;
+	if(p.clk)n.onclick=p.clk;
+	if(p.chng)n.onchange=p.chng;
+	if(p.s)for(var i in p.s)n.style[i]=p.s[i];
+	if(p.a)for(var i in p.a)n[i]=p.a[i];
+	if(p.c || arr )
+	{if(arr||(nm.toLowerCase()=='table'))t.bldTbl (p,n);
+	 else if(nm.toLowerCase()=='select')t.bldSlct(p.c,n,p);
+	 else for(var i=0;i<p.c.length;i++)
+		{var x=p.c[i],y=typeof(x);if(y!='object' && ! x instanceof Array)//y=='string'
+			t.dct(x,n);//n.appendChild(document.createTextNode(x));
+		else
+			t.bld(x,n);
+	}}
+	if(p.clpsbl)n=t.createCollapsable(p.clpsbl,parent,n,p.id);
+	else if(parent)parent.appendChild(n);
+ }catch(ex){console.error('App.bld:ex',ex);}return n;}//function bld
+
+,bldObjProps:function App_BuildHtmlObjProp(o,pr){
+	var t=App;if(o&&typeof(o.nodeName)=='string')return t.bld(o,pr);
+	var fldSet=t.dce('FieldSet',pr||document.body);
+	fldSet.json=o;
+	if(o instanceof Array)t.bldTbl(o,fldSet);
+	else if( typeof(o)!='object')t.dct(o,fldSet);
+	else for(var i in o){
+		var lg=t.dce('legend',fldSet,i),x=o[i];
+		if(x instanceof Array)
+		 t.bldTbl(x,fldSet);
+		else if(typeof(x)=='object')
+		  t.bldObjProps(x,fldSet);
+		else t.dct(x,fldSet);
+	}return fldSet;
+}//bldObjProp
+
+,bldSlct:function App_BuildSelect(a,pr,params){
+	var c=params.c,i,n,t,v,s=params.selected||params.a.selected;
+	for(i=0;c&&i<c.length;i++)
+	{	pr.options[pr.options.length]=n=typeof(c[i])=='string'||!((c[i] instanceof Array&&c[i].length>1)||c[i].value)
+		?new Option(t=v=c[i]):new Option(t=(c[i].text||c[i][0]),v=(c[i].value||c[i][1]));if(s==t||s==v)n.selected=true;}}
+
+
+	,/** params: array ;or same as bld.params
+	  .columnsHidden integer count of the first columns that should not generate html
+	  , .c  2 dimensional array of elements ,this method will nest each elem in a TD
+	  , and the elem is same as bld.params,recursive
+	  , .headings 1dim array , this method nests each elem in a TH, and the elem is
+	  , .footer
+	  same as bld.params
+	  , pr:parent domÃ‚Â­element , basedÃ‚Â­on/uses dce*/
+ bldTbl:function sys_BuildHtmlTable(params,pr){
+		  var t=sys
+		  ,tbl=pr&&pr.nodeName=='TABLE'?pr:
+		  t.dce('table',pr,null,params?params.id:0)
+		  ,tb=tbl?tbl.tBodies[0]||tbl.createTBody():0
+		  ,arr=params instanceof Array;
+		  tbl.json=params;
+		  if(params.headings)
+		  {var ht=tbl.tHead||tbl.createTHead()
+			  //console.log('sys.bldTbl:params.headings:ht=',ht)
+			  var a=params.headings,th
+			  //console.log('sys.bldTbl:params.headings:a=',a)
+			  var tr=ht;if(tr)
+			  {tr=tr.children;
+				  if(tr){if(tr[0])
+					  tr=tr[0];
+				  }}
+			  if(!tr || !tr.insertCell )
+				  tr=ht.insertRow(0);
+			  //var tr=ht.children?th.children[0]||ht.insertRow():0;
+			  //console.log('sys.bldTbl:params.headings:tr=',tr)
+			  for(var i in a)
+				  if(!(params.columnsHidden>=i))
+					  th=t.dce('th',tr,{t:a[i]});
+		  }
+		  if(params.c || arr)
+		  {var r,a=arr?params:params.c,tr,td;
+			  for(var i in a)
+			  {tr=tb.insertRow();
+				  if(params.rows)
+				  {	var v=params.rows[i]
+					  if(v)th=t.dce('th',tr,{t:v});
+				  }
+				  for(var j in a[i])
+					  if(!(params.columnsHidden>=i))
+					  {	td=tr.insertCell();
+						  t.dct(a[i][j],td);//t.bld(a[i][j],td);
+					  }}	 }
+		  if(params.footer)
+		  {var ht=tbl.tFoot||tbl.createTFoot()
+			  ,a=params.footer,td
+			  ,tr=ht.children?ht.children[0]||ht.insertRow():0;
+			  for(var i in a)
+				  if(!(params.columnsHidden>=i))
+					  t.dct(a[i],tr.insertCell());
+		  }
+		  return tbl;}
+
+	,dcc:function sys_CreateCollapsable(title,prnt,contnt,styl,id){
+		var t=sys
+		,fs=t.dce('fieldset',prnt,{styl:styl,id:'fs.'+id})
+		,l=t.dce('legend',fs,title),nod=contnt;
+		if(! nod instanceof Node)nod=t.dce('span',fs,{t:contnt,id:id});
+		else {fs.appendChild(nod);nod.style.display='none'}//t.dcb(l,'+',0,
+		l.onclick=function(evt){try{var d=nod.style.display;
+			//console.log('onclickCollapsable:d=',d,' ,nod=',nod,' ,',nod.innerHTML);
+			nod.style.display=(d=='none'?'block':'none');}
+			catch(ex){console.error('onclickCollapsable:ex:',ex);}return nod;}}
+,/**
+ * parameter p attributes
+ *	data: body data of the xhr request sent to the server ,default null
+ *	headers: json-object of name/value , set as request headers, defaults to null
+ *	asyncFunc: reference to a function that is called in asynchronous mode
+ 		, when the server successfully responds the func is given as a param
+ 		the xhr obj and second param p, defaults to null which is synchronise mode
+ *	method: string , POST, GET, defaults to POST
+ *	url: the url of xhr , defaults to string 'xhr.jsp'
+ *	asJson:boolean, if true returns JSON.parse(xhr.responseText) else returns xhr.responseText
+ * //as: string 'text' , 'json' , defaults to text //'html', 'xml'
+ * */
+xhr:function App_xhr(p)//data,callBack,asText)
+{if(!p)return p;
+ var ct='Content-Type',cs='charset',x=App.isIE?new
+		ActiveXObject("microsoft.XMLHTTP")
+		:new XMLHttpRequest();
+	x.open(p.method||'POST',p.url||'/te050c/xhr.jsp', p.asyncFunc);
+	//if(p.headers)for(var i in p.headers)x.setRequestHeader(i,p.headers[i]);//console.log('scriptedReq:header['+i+']:'+headers[i]);
+	if(!p.headers || !p.headers[ct])x.setRequestHeader(ct, 'text/json');//'application/x-www-form-urlencoded');
+	if(!p.headers || !p.headers[cs])x.setRequestHeader(cs, 'utf-8');
+	if(p.asyncFunc)x.onreadystatechange=function App_xhrAsync()
+		{console.log('App_xhrAsync:x=',x,' ,p=',p);
+		 if (x.readyState === 4 && x.status==200){var o=
+			p.asJson?JSON.parse ( x . responseText ) : x . responseText;
+			p.responseJsonResponse=o;
+			if(!p.asJson || !o.errorMessage)
+				p.asyncFunc(o['return'],x,p);
+			else
+				console.log('App_xhrAsync:case cant call p.asyncFunc:',o,x,p);
+		 }else
+			console.log('App_xhrAsync:case not ready:',x,p);
+		};
+	if(p.headers)for(var i in p.headers)
+		x.setRequestHeader( i , p.headers [ i ] ) ; //setRequestHeader( Name, Value )
+	if(!window.ax)window.ax=[ [x,p]];else window.ax.push([x,p]);
+	x.send((typeof p.data)=='string'?p.data:(p.requestBodyDataJsonified=JSON
+	 .stringify(p.data)));//console.log('scriptedReq:response:'+ajax.responseText);
+	console.log('xhr:end:x=',x,' ,p=',p, x.response);
+	return p.asJson?JSON.parse ( x . responseText ) : x . responseText ;
+	}//function xhr
+
+,onFormSubmit_doXHR:function App_onFormSubmit_doXHR(e){
+	e.preventDefault();
+	var f=e.target?e.target:this,json={},a,b,
+		t=['INPUT','SELECT','TEXTAREA'],i,j,y;
+	if(f.name)json.formName=f.name;
+	for(j=0;j<t.length;j++){
+		a=f.getElementsByName(t[j]);
+		for(i=0;i<a.length;i++){
+			y=a[i].type;
+			b=y=='SUBMIT';
+			if(b)
+			{	if(!f.submitButtons)
+					f.submitButtons={};
+				b=f.submitButtons[a[i].name] ;
+				if(!b)f.submitButtons[a[i].name]=a[i];
+				else if( a[i].time<=b.time){b=false;
+					f.submitButtons[a[i].name]=a[i];}
+			}//if
+			if(!b||((y=='RADIO'||y=='CHECKBOX'
+				)&&a[i].checked)){
+				b=(j==1?a[i].options[a[
+						i].selectedIndex]
+					:a[i]).value;y=
+				json[a[i].name];
+				json[a[i].name]=
+					y==undefined?b
+					:y instanceof Array
+					?y.append(b)
+					:[y,b]
+			}//if
+		}//for i
+	}//for j
+	console.log('onFormSubmit_doXHR:form=',f,',json=',json);
+	var result=xhr({data:json,asJson:1,asyncFunc:function asyncFunc(x,p){
+		var r=x . responseText;
+		console.log('onFormSubmit_doXHR.asynFunc:r=',r,' ,x=',x,' ,p=',p);}});
+	console.log('onFormSubmit_doXHR:result=',result);
+	return false;}//function onFormSubmit_doXHR
+
+
+}//app
+    </script>
+</head>
+<body>
+
+</body>
+</html>

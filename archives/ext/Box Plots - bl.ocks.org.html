@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://bl.ocks.org/mbostock/4061502 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mbostock">
+<meta property="og:url" content="http://bl.ocks.org/mbostock/4061502">
+<meta property="og:title" content="Box Plots">
+<meta property="og:description" content="Mike Bostock’s Block 4061502">
+<meta property="og:image" content="http://bl.ocks.org/mbostock/raw/4061502/88bf552c188c97c3357fe56b3fe3e43422881e0e/thumbnail.png">
+<title>Box Plots - bl.ocks.org</title>
+<link rel="icon" href="https://bl.ocks.org/favicon.png">
+<style class="--apng-checked">
+
+@import url("/style.css");
+
+</style>
+
+</head><body><header>
+  <div class="column">
+    <div class="navigation">
+      <a href="https://bl.ocks.org/">Popular</a>
+      / <a href="https://bl.ocks.org/-/about">About</a>
+    </div>
+    <a class="user" href="https://bl.ocks.org/mbostock"><img class="avatar" src="./Box Plots - bl.ocks.org_files/230541" width="30" height="30">Mike Bostock</a>’s
+    Block <a class="gist gist-id self" title="View Gist on GitHub." href="https://gist.github.com/mbostock/4061502">4061502</a>    <div class="date">Updated November 30, 2016</div>
+  </div>
+</header>
+
+<div class="column">
+  <h1>Box Plots</h1>
+  <div class="index">
+    <iframe sandbox="allow-popups allow-scripts allow-forms allow-same-origin" src="./Box Plots - bl.ocks.org_files/saved_resource.html" marginwidth="0" marginheight="0" style="height:500px;" scrolling="no"></iframe>
+  </div>
+  <div class="index-pop">
+    <a target="_blank" title="Open Block 4061502 a new window." href="https://bl.ocks.org/mbostock/raw/4061502">Open<svg height="16" width="12"><path d="M11 10h1v3c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V3c0-0.55 0.45-1 1-1h3v1H1v10h10V10zM6 2l2.25 2.25-3.25 3.25 1.5 1.5 3.25-3.25 2.25 2.25V2H6z"></path></svg></a>
+  </div>
+  <div class="gist-readme" data-key="README.md"><p>A box-and-whisker plot uses simple glyphs that summarize a quantitative distribution with five standard statistics: the smallest value, lower quartile, median, upper quartile, and largest value. This summary approach allows the viewer to easily recognize differences between distributions. Data from the <a href="http://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment">Michelson–Morley experiment</a>. Implementation contributed by <a href="http://www.jasondavies.com/">Jason Davies</a>. This example periodically randomizes the values to demonstrate transitions.</p></div>
+  <div class="gist-sources">
+    <div class="gist-source" data-key="index.html">
+      <h2>index.html<a name="index.html" class="anchor" href="https://bl.ocks.org/mbostock/4061502#index.html">#</a></h2>
+      <pre><code class="html xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+
+<span class="tag">body</span> <span class="rules">{
+  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">"Helvetica Neue"</span>, Helvetica, Arial, sans-serif</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="rules">{
+  <span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">10</span>px sans-serif</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="tag">line</span>,
+<span class="class">.box</span> <span class="tag">rect</span>,
+<span class="class">.box</span> <span class="tag">circle</span> <span class="rules">{
+  <span class="rule"><span class="attribute">fill</span>:<span class="value"> <span class="hexcolor">#fff</span></span>;</span>
+  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="number">#000</span></span>;</span>
+  <span class="rule"><span class="attribute">stroke-width</span>:<span class="value"> <span class="number">1.5</span>px</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="class">.center</span> <span class="rules">{
+  <span class="rule"><span class="attribute">stroke-dasharray</span>:<span class="value"> <span class="number">3</span>,<span class="number">3</span></span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="class">.outlier</span> <span class="rules">{
+  <span class="rule"><span class="attribute">fill</span>:<span class="value"> none</span>;</span>
+  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="hexcolor">#ccc</span></span>;</span>
+<span class="rule">}</span></span>
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//d3js.org/d3.v3.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"box.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+
+<span class="keyword">var</span> margin = {top: <span class="number">10</span>, right: <span class="number">50</span>, bottom: <span class="number">20</span>, left: <span class="number">50</span>},
+    width = <span class="number">120</span> - margin.left - margin.right,
+    height = <span class="number">500</span> - margin.top - margin.bottom;
+
+<span class="keyword">var</span> min = Infinity,
+    max = -Infinity;
+
+<span class="keyword">var</span> chart = d3.box()
+    .whiskers(iqr(<span class="number">1.5</span>))
+    .width(width)
+    .height(height);
+
+d3.csv(<span class="string">"morley.csv"</span>, <span class="function"><span class="keyword">function</span><span class="params">(error, csv)</span> {</span>
+  <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;
+
+  <span class="keyword">var</span> data = [];
+
+  csv.forEach(<span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">var</span> e = Math.floor(x.Expt - <span class="number">1</span>),
+        r = Math.floor(x.Run - <span class="number">1</span>),
+        s = Math.floor(x.Speed),
+        d = data[e];
+    <span class="keyword">if</span> (!d) d = data[e] = [s];
+    <span class="keyword">else</span> d.push(s);
+    <span class="keyword">if</span> (s &gt; max) max = s;
+    <span class="keyword">if</span> (s &lt; min) min = s;
+  });
+
+  chart.domain([min, max]);
+
+  <span class="keyword">var</span> svg = d3.select(<span class="string">"body"</span>).selectAll(<span class="string">"svg"</span>)
+      .data(data)
+    .enter().append(<span class="string">"svg"</span>)
+      .attr(<span class="string">"class"</span>, <span class="string">"box"</span>)
+      .attr(<span class="string">"width"</span>, width + margin.left + margin.right)
+      .attr(<span class="string">"height"</span>, height + margin.bottom + margin.top)
+    .append(<span class="string">"g"</span>)
+      .attr(<span class="string">"transform"</span>, <span class="string">"translate("</span> + margin.left + <span class="string">","</span> + margin.top + <span class="string">")"</span>)
+      .call(chart);
+
+  setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    svg.datum(randomize).call(chart.duration(<span class="number">1000</span>));
+  }, <span class="number">2000</span>);
+});
+
+<span class="function"><span class="keyword">function</span> <span class="title">randomize</span><span class="params">(d)</span> {</span>
+  <span class="keyword">if</span> (!d.randomizer) d.randomizer = randomizer(d);
+  <span class="keyword">return</span> d.map(d.randomizer);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">randomizer</span><span class="params">(d)</span> {</span>
+  <span class="keyword">var</span> k = d3.max(d) * .<span class="number">02</span>;
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span>
+    <span class="keyword">return</span> Math.max(min, Math.min(max, d + k * (Math.random() - .<span class="number">5</span>)));
+  };
+}
+
+<span class="comment">// Returns a function to compute the interquartile range.</span>
+<span class="function"><span class="keyword">function</span> <span class="title">iqr</span><span class="params">(k)</span> {</span>
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span>
+    <span class="keyword">var</span> q1 = d.quartiles[<span class="number">0</span>],
+        q3 = d.quartiles[<span class="number">2</span>],
+        iqr = (q3 - q1) * k,
+        i = -<span class="number">1</span>,
+        j = d.length;
+    <span class="keyword">while</span> (d[++i] &lt; q1 - iqr);
+    <span class="keyword">while</span> (d[--j] &gt; q3 + iqr);
+    <span class="keyword">return</span> [i, j];
+  };
+}
+
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+    </div>
+    <div class="gist-source" data-key="box.js">
+      <h2>box.js<a name="box.js" class="anchor" href="https://bl.ocks.org/mbostock/4061502#box.js">#</a></h2>
+      <pre><code class="javascript">(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+
+<span class="comment">// Inspired by http://informationandvisualization.de/blog/box-plot</span>
+d3.box = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">var</span> width = <span class="number">1</span>,
+      height = <span class="number">1</span>,
+      duration = <span class="number">0</span>,
+      domain = <span class="literal">null</span>,
+      value = Number,
+      whiskers = boxWhiskers,
+      quartiles = boxQuartiles,
+      tickFormat = <span class="literal">null</span>;
+
+  <span class="comment">// For each small multiple…</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">box</span><span class="params">(g)</span> {</span>
+    g.each(<span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span>
+      d = d.map(value).sort(d3.ascending);
+      <span class="keyword">var</span> g = d3.select(<span class="keyword">this</span>),
+          n = d.length,
+          min = d[<span class="number">0</span>],
+          max = d[n - <span class="number">1</span>];
+
+      <span class="comment">// Compute quartiles. Must return exactly 3 elements.</span>
+      <span class="keyword">var</span> quartileData = d.quartiles = quartiles(d);
+
+      <span class="comment">// Compute whiskers. Must return exactly 2 elements, or null.</span>
+      <span class="keyword">var</span> whiskerIndices = whiskers &amp;&amp; whiskers.call(<span class="keyword">this</span>, d, i),
+          whiskerData = whiskerIndices &amp;&amp; whiskerIndices.map(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> d[i]; });
+
+      <span class="comment">// Compute outliers. If no whiskers are specified, all data are "outliers".</span>
+      <span class="comment">// We compute the outliers as indices, so that we can join across transitions!</span>
+      <span class="keyword">var</span> outlierIndices = whiskerIndices
+          ? d3.range(<span class="number">0</span>, whiskerIndices[<span class="number">0</span>]).concat(d3.range(whiskerIndices[<span class="number">1</span>] + <span class="number">1</span>, n))
+          : d3.range(n);
+
+      <span class="comment">// Compute the new x-scale.</span>
+      <span class="keyword">var</span> x1 = d3.scale.linear()
+          .domain(domain &amp;&amp; domain.call(<span class="keyword">this</span>, d, i) || [min, max])
+          .range([height, <span class="number">0</span>]);
+
+      <span class="comment">// Retrieve the old x-scale, if this is an update.</span>
+      <span class="keyword">var</span> x0 = <span class="keyword">this</span>.__chart__ || d3.scale.linear()
+          .domain([<span class="number">0</span>, Infinity])
+          .range(x1.range());
+
+      <span class="comment">// Stash the new scale.</span>
+      <span class="keyword">this</span>.__chart__ = x1;
+
+      <span class="comment">// Note: the box, median, and box tick elements are fixed in number,</span>
+      <span class="comment">// so we only have to handle enter and update. In contrast, the outliers</span>
+      <span class="comment">// and other elements are variable, so we need to exit them! Variable</span>
+      <span class="comment">// elements also fade in and out.</span>
+
+      <span class="comment">// Update center line: the vertical line spanning the whiskers.</span>
+      <span class="keyword">var</span> center = g.selectAll(<span class="string">"line.center"</span>)
+          .data(whiskerData ? [whiskerData] : []);
+
+      center.enter().insert(<span class="string">"line"</span>, <span class="string">"rect"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"center"</span>)
+          .attr(<span class="string">"x1"</span>, width / <span class="number">2</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"x2"</span>, width / <span class="number">2</span>)
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">1</span>]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">1</span>]); });
+
+      center.transition()
+          .duration(duration)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">1</span>]); });
+
+      center.exit().transition()
+          .duration(duration)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">1</span>]); })
+          .remove();
+
+      <span class="comment">// Update innerquartile box.</span>
+      <span class="keyword">var</span> box = g.selectAll(<span class="string">"rect.box"</span>)
+          .data([quartileData]);
+
+      box.enter().append(<span class="string">"rect"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"box"</span>)
+          .attr(<span class="string">"x"</span>, <span class="number">0</span>)
+          .attr(<span class="string">"y"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">2</span>]); })
+          .attr(<span class="string">"width"</span>, width)
+          .attr(<span class="string">"height"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">0</span>]) - x0(d[<span class="number">2</span>]); })
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">2</span>]); })
+          .attr(<span class="string">"height"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]) - x1(d[<span class="number">2</span>]); });
+
+      box.transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">2</span>]); })
+          .attr(<span class="string">"height"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]) - x1(d[<span class="number">2</span>]); });
+
+      <span class="comment">// Update median line.</span>
+      <span class="keyword">var</span> medianLine = g.selectAll(<span class="string">"line.median"</span>)
+          .data([quartileData[<span class="number">1</span>]]);
+
+      medianLine.enter().append(<span class="string">"line"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"median"</span>)
+          .attr(<span class="string">"x1"</span>, <span class="number">0</span>)
+          .attr(<span class="string">"y1"</span>, x0)
+          .attr(<span class="string">"x2"</span>, width)
+          .attr(<span class="string">"y2"</span>, x0)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1);
+
+      medianLine.transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1);
+
+      <span class="comment">// Update whiskers.</span>
+      <span class="keyword">var</span> whisker = g.selectAll(<span class="string">"line.whisker"</span>)
+          .data(whiskerData || []);
+
+      whisker.enter().insert(<span class="string">"line"</span>, <span class="string">"circle, text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"whisker"</span>)
+          .attr(<span class="string">"x1"</span>, <span class="number">0</span>)
+          .attr(<span class="string">"y1"</span>, x0)
+          .attr(<span class="string">"x2"</span>, width)
+          .attr(<span class="string">"y2"</span>, x0)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whisker.transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whisker.exit().transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .remove();
+
+      <span class="comment">// Update outliers.</span>
+      <span class="keyword">var</span> outlier = g.selectAll(<span class="string">"circle.outlier"</span>)
+          .data(outlierIndices, Number);
+
+      outlier.enter().insert(<span class="string">"circle"</span>, <span class="string">"text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"outlier"</span>)
+          .attr(<span class="string">"r"</span>, <span class="number">5</span>)
+          .attr(<span class="string">"cx"</span>, width / <span class="number">2</span>)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x0(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x1(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      outlier.transition()
+          .duration(duration)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x1(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      outlier.exit().transition()
+          .duration(duration)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x1(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .remove();
+
+      <span class="comment">// Compute the tick format.</span>
+      <span class="keyword">var</span> format = tickFormat || x1.tickFormat(<span class="number">8</span>);
+
+      <span class="comment">// Update box ticks.</span>
+      <span class="keyword">var</span> boxTick = g.selectAll(<span class="string">"text.box"</span>)
+          .data(quartileData);
+
+      boxTick.enter().append(<span class="string">"text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"box"</span>)
+          .attr(<span class="string">"dy"</span>, <span class="string">".3em"</span>)
+          .attr(<span class="string">"dx"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span> <span class="keyword">return</span> i &amp; <span class="number">1</span> ? <span class="number">6</span> : -<span class="number">6</span> })
+          .attr(<span class="string">"x"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span> <span class="keyword">return</span> i &amp; <span class="number">1</span> ? width : <span class="number">0</span> })
+          .attr(<span class="string">"y"</span>, x0)
+          .attr(<span class="string">"text-anchor"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span> <span class="keyword">return</span> i &amp; <span class="number">1</span> ? <span class="string">"start"</span> : <span class="string">"end"</span>; })
+          .text(format)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, x1);
+
+      boxTick.transition()
+          .duration(duration)
+          .text(format)
+          .attr(<span class="string">"y"</span>, x1);
+
+      <span class="comment">// Update whisker ticks. These are handled separately from the box</span>
+      <span class="comment">// ticks because they may or may not exist, and we want don't want</span>
+      <span class="comment">// to join box ticks pre-transition with whisker ticks post-.</span>
+      <span class="keyword">var</span> whiskerTick = g.selectAll(<span class="string">"text.whisker"</span>)
+          .data(whiskerData || []);
+
+      whiskerTick.enter().append(<span class="string">"text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"whisker"</span>)
+          .attr(<span class="string">"dy"</span>, <span class="string">".3em"</span>)
+          .attr(<span class="string">"dx"</span>, <span class="number">6</span>)
+          .attr(<span class="string">"x"</span>, width)
+          .attr(<span class="string">"y"</span>, x0)
+          .text(format)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whiskerTick.transition()
+          .duration(duration)
+          .text(format)
+          .attr(<span class="string">"y"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whiskerTick.exit().transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .remove();
+    });
+    d3.timer.flush();
+  }
+
+  box.width = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> width;
+    width = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.height = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> height;
+    height = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.tickFormat = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> tickFormat;
+    tickFormat = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.duration = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> duration;
+    duration = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.domain = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> domain;
+    domain = x == <span class="literal">null</span> ? x : d3.functor(x);
+    <span class="keyword">return</span> box;
+  };
+
+  box.value = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> value;
+    value = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.whiskers = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> whiskers;
+    whiskers = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.quartiles = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> quartiles;
+    quartiles = x;
+    <span class="keyword">return</span> box;
+  };
+
+  <span class="keyword">return</span> box;
+};
+
+<span class="function"><span class="keyword">function</span> <span class="title">boxWhiskers</span><span class="params">(d)</span> {</span>
+  <span class="keyword">return</span> [<span class="number">0</span>, d.length - <span class="number">1</span>];
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">boxQuartiles</span><span class="params">(d)</span> {</span>
+  <span class="keyword">return</span> [
+    d3.quantile(d, .<span class="number">25</span>),
+    d3.quantile(d, .<span class="number">5</span>),
+    d3.quantile(d, .<span class="number">75</span>)
+  ];
+}
+
+})();
+</code></pre>
+    </div>
+    <div class="gist-source" data-key="morley.csv">
+      <h2>morley.csv<a name="morley.csv" class="anchor" href="https://bl.ocks.org/mbostock/4061502#morley.csv">#</a></h2>
+      <pre><code class="csv undefined">Expt,Run,Speed
+1,1,850
+1,2,740
+1,3,900
+1,4,1070
+1,5,930
+1,6,850
+1,7,950
+1,8,980
+1,9,980
+1,10,880
+1,11,1000
+1,12,980
+1,13,930
+1,14,650
+1,15,760
+1,16,810
+1,17,1000
+1,18,1000
+1,19,960
+1,20,960
+2,1,960
+2,2,940
+2,3,960
+2,4,940
+2,5,880
+2,6,800
+2,7,850
+2,8,880
+2,9,900
+2,10,840
+2,11,830
+2,12,790
+2,13,810
+2,14,880
+2,15,880
+2,16,830
+2,17,800
+2,18,790
+2,19,760
+2,20,800
+3,1,880
+3,2,880
+3,3,880
+3,4,860
+3,5,720
+3,6,720
+3,7,620
+3,8,860
+3,9,970
+3,10,950
+3,11,880
+3,12,910
+3,13,850
+3,14,870
+3,15,840
+3,16,840
+3,17,850
+3,18,840
+3,19,840
+3,20,840
+4,1,890
+4,2,810
+4,3,810
+4,4,820
+4,5,800
+4,6,770
+4,7,760
+4,8,740
+4,9,750
+4,10,760
+4,11,910
+4,12,920
+4,13,890
+4,14,860
+4,15,880
+4,16,720
+4,17,840
+4,18,850
+4,19,850
+4,20,780
+5,1,890
+5,2,840
+5,3,780
+5,4,810
+5,5,760
+5,6,810
+5,7,790
+5,8,810
+5,9,820
+5,10,850
+5,11,870
+5,12,870
+5,13,810
+5,14,740
+5,15,810
+5,16,940
+5,17,950
+5,18,800
+5,19,810
+5,20,870
+</code></pre>
+    </div>
+  </div>
+  <div class="gist-license">
+    <h2>LICENSE<a name="license" class="anchor" href="https://bl.ocks.org/mbostock/4061502#license">#</a></h2>
+    Released under the <a target="_blank" href="https://opensource.org/licenses/GPL-3.0">GNU General Public License, version 3</a>.
+  </div>
+</div>
+
+<script src="./Box Plots - bl.ocks.org_files/d3.v3.min.js.download"></script>
+<script src="./Box Plots - bl.ocks.org_files/highlight.min.js.download"></script>
+<script>
+
+var gist = {"public":true,"sha":"88bf552c188c97c3357fe56b3fe3e43422881e0e","files":{".block":{"language":null,"type":"text/plain","filename":".block","size":17,"sha":"703d310b399098a243a76a50bc209167e924cfd2"},"README.md":{"language":"Markdown","type":"text/plain","filename":"README.md","size":547,"sha":"6b5c480a3a99f65760c867d4d1955d44d83aa010"},"box.js":{"language":"JavaScript","type":"application/javascript","filename":"box.js","size":8616,"sha":"3e800d3e85a8d6b27e8818c74ef2521e07629084"},"index.html":{"language":"HTML","type":"text/html","filename":"index.html","size":2141,"sha":"1912b06ab5cf83fa581788672f08fe6e0ac5e8da"},"morley.csv":{"language":"CSV","type":"text/csv","filename":"morley.csv","size":874,"sha":"7f2acaba70d05ce76b3e6f8085c194d32f8e83be"},"thumbnail.png":{"language":null,"type":"image/png","filename":"thumbnail.png","size":7765,"sha":"751219107de72b67547eab84b7e95b2d5151c8cc"}},"created_at":"2012-11-12T19:52:07Z","updated_at":"2016-11-30T19:02:17Z","description":"Box Plots","owner":{"login":"mbostock"},"id":"4061502"};
+
+var files = d3.values(gist.files);
+
+d3.select(".gist-readme")
+    .data(files, function(d) { return d ? d.filename : this.getAttribute("data-key"); })
+    .each(function(d) {
+      var readme = d3.select(this);
+      d3.text("/mbostock/raw/4061502/88bf552c188c97c3357fe56b3fe3e43422881e0e/" + d.filename, function(error, content) {
+        if (error) content = "Sorry, an error occurred.";
+        readme.html(new Showdown.converter().makeHtml(content));
+        readme.selectAll("code").each(function() { hljs.highlightBlock(this); });
+      });
+    });
+
+d3.selectAll(".gist-source")
+    .data(files, function(d) { return d ? d.filename : this.getAttribute("data-key"); })
+  .select("code")
+    .attr("class", function(d) { return d.language && (d.language === "JSON" ? "javascript" : d.language.toLowerCase()); })
+    .each(function(d) {
+      var code = d3.select(this);
+      d3.text("/mbostock/raw/4061502/88bf552c188c97c3357fe56b3fe3e43422881e0e/" + (d.filename === "index.html" ? "" : d.filename), function(error, content) {
+        if (error) content = "Sorry, an error occurred.";
+        code.text(content);
+        hljs.highlightBlock(code.node());
+      });
+    });
+
+</script>
+
+<script>
+
+GoogleAnalyticsObject = "ga", ga = function() { ga.q.push(arguments); }, ga.q = [], ga.l = +new Date;
+ga("create", "UA-48272912-1", "auto");
+ga("send", "pageview");
+
+</script>
+<script async="" src="./Box Plots - bl.ocks.org_files/analytics.js.download"></script>
+</body></html>

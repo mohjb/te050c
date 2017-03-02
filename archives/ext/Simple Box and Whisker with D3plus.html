@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://d3plus.org/examples/basic/78018ce8c3787d4e30d9/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Simple Box and Whisker with D3plus</title>
+    <meta name="description" content="Data visualization made easy. A javascript library that extends the popular D3.js to enable fast and beautiful visualizations.">
+
+    <link rel="shortcut icon" type="image/png" href="http://d3plus.org/assets/img/favicon.ico">
+    <link rel="apple-touch-icon" sizes="256x256" href="http://d3plus.org/assets/img/touchicon.png">
+
+    <!-- Facebook Properties -->
+    <meta property="og:image" content="http://d3plus.org/assets/img/facebook.jpg">
+
+    <!-- Custom CSS -->
+    <link href="./Simple Box and Whisker with D3plus_files/styles.css" media="screen" rel="stylesheet" type="text/css" class="--apng-checked">
+    <link href="./Simple Box and Whisker with D3plus_files/syntax.css" media="screen" rel="stylesheet" type="text/css" class="--apng-checked">
+    <link href="./Simple Box and Whisker with D3plus_files/blog.css" media="screen" rel="stylesheet" type="text/css" class="--apng-checked">
+
+    <!-- Font-Awesome -->
+    <link href="./Simple Box and Whisker with D3plus_files/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" class="--apng-checked">
+
+    <script async="" src="./Simple Box and Whisker with D3plus_files/analytics.js.download"></script><script src="./Simple Box and Whisker with D3plus_files/d3.min.js.download"></script>
+    <script src="./Simple Box and Whisker with D3plus_files/d3plus.min.js.download"></script>
+
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <h1><a href="http://d3plus.org/">D3plus</a></h1>
+        
+        
+        <a href="http://d3plus.org/d3plus.zip">
+          <i class="fa fa-download"></i>Download
+        </a>
+        
+        <a class="active" href="http://d3plus.org/examples/">
+          <i class="fa fa-code"></i>Examples
+        </a>
+        
+        <a href="http://d3plus.org/blog/">
+          <i class="fa fa-rss"></i>Blog
+        </a>
+        
+        <a href="https://groups.google.com/forum/#!forum/d3plus">
+          <i class="fa fa-comments-o"></i>Google Group
+        </a>
+        
+        <a href="https://github.com/alexandersimoes/d3plus/wiki">
+          <i class="fa fa-book"></i>Documentation
+        </a>
+        
+        <a href="https://github.com/alexandersimoes/d3plus">
+          <i class="fa fa-github"></i>Source
+        </a>
+        
+      </nav>
+    </header>
+
+
+    <div id="content">
+      
+
+
+
+
+
+<div class="page-header" style="position: relative;">
+  <h1 class="post-title">Simple Box and Whisker</h1>
+  <a class="button right" href="http://bl.ocks.org/davelandry/raw/78018ce8c3787d4e30d9/" target="_blank">
+    View Standalone <i class="fa fa-angle-right"></i>
+  </a>
+</div>
+
+<section>
+  <p class="example"><p>Data can be drawn using a Box and Whisker Plot, which helps highlight outliers and give a quick snapshot of the different quartiles of the dataset. This example includes a <a href="https://github.com/alexandersimoes/d3plus/wiki/Visualizations#ui">.ui( )</a> control that shows the difference between a Box and Whisker and a standard Scatter Plot.</p></p>
+  <iframe id="iframe-example" width="990" height="640" src="./Simple Box and Whisker with D3plus_files/saved_resource.html"></iframe>
+  <script src="./Simple Box and Whisker with D3plus_files/78018ce8c3787d4e30d9.js.download"></script><link rel="stylesheet" href="./Simple Box and Whisker with D3plus_files/gist-embed-04d41fe71632a896c1dd3e883de9f48941fad414d68185aa8df817b950873a05.css" class="--apng-checked"><div id="gist14928954" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-index-html" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-html">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-index-html-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-index-html-LC1" class="blob-code blob-code-inner js-file-line">&lt;!doctype html&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-index-html-LC2" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-index-html-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-index-html-LC4" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>//d3plus.org/js/d3.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-index-html-LC5" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>//d3plus.org/js/d3plus.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-index-html-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-index-html-LC7" class="blob-code blob-code-inner js-file-line">&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>viz<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-index-html-LC8" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-index-html-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-index-html-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-index-html-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">  <span class="pl-k">var</span> data <span class="pl-k">=</span> [</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-index-html-LC12" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>alpha<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">15</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-index-html-LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>alpha<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">34</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-index-html-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>alpha2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">17</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-index-html-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>alpha2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">65</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-index-html-LC16" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>beta<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">10</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-index-html-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>beta<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">10</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-index-html-LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>beta2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">40</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-index-html-LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>beta2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">38</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-index-html-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>gamma<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">5</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-index-html-LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>gamma<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">10</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-index-html-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>gamma2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">20</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-index-html-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>gamma2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">34</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-index-html-LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>delta<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">50</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-index-html-LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>delta<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">43</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-index-html-LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1991</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>delta2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">17</span>},</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-index-html-LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    {<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">1992</span>, <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>delta2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-c1">35</span>}</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-index-html-LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">  ]</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-index-html-LC29" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-index-html-LC30" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">  <span class="pl-k">var</span> visualization <span class="pl-k">=</span> <span class="pl-smi">d3plus</span>.<span class="pl-en">viz</span>()</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-index-html-LC31" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-en">container</span>(<span class="pl-s"><span class="pl-pds">"</span>#viz<span class="pl-pds">"</span></span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-index-html-LC32" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-c1">data</span>(data)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="file-index-html-LC33" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-c1">type</span>(<span class="pl-s"><span class="pl-pds">"</span>box<span class="pl-pds">"</span></span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="file-index-html-LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-c1">id</span>(<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="file-index-html-LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-c1">x</span>(<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="file-index-html-LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-c1">y</span>(<span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="file-index-html-LC37" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-en">time</span>(<span class="pl-s"><span class="pl-pds">"</span>year<span class="pl-pds">"</span></span>)</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="file-index-html-LC38" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-en">ui</span>([{ </span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="file-index-html-LC39" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-s"><span class="pl-pds">"</span>label<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Visualization Type<span class="pl-pds">"</span></span>,</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="file-index-html-LC40" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-s"><span class="pl-pds">"</span>method<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>, </span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="file-index-html-LC41" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">        <span class="pl-s"><span class="pl-pds">"</span>value<span class="pl-pds">"</span></span><span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">"</span>scatter<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>box<span class="pl-pds">"</span></span>]</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="file-index-html-LC42" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">      }])</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="file-index-html-LC43" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">    .<span class="pl-en">draw</span>()</span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="file-index-html-LC44" class="blob-code blob-code-inner js-file-line"><span class="pl-s1"></span></td>
+      </tr>
+      <tr>
+        <td id="file-index-html-L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="file-index-html-LC45" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/davelandry/78018ce8c3787d4e30d9/raw/9afecc4578ace5fa6a8a72a6b07a068d285ce4f1/index.html" style="float:right">view raw</a>
+        <a href="https://gist.github.com/davelandry/78018ce8c3787d4e30d9#file-index-html">index.html</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+</section>
+
+<script src="./Simple Box and Whisker with D3plus_files/d3.js.download"></script>
+<script src="./Simple Box and Whisker with D3plus_files/showdown.js.download"></script>
+
+<script>
+
+  var id = "78018ce8c3787d4e30d9"
+
+  d3.json("https://api.github.com/gists/"+id+"?client_id=85fd2434dd8ebd42c68d&client_secret=d3c1a4d9fb8752c9d6e9a4c8726fd9e6cfbd0067",function(error, gist){
+
+    if (!error || gist.length > 0) {
+
+      var doc = document.getElementById("iframe-example").contentWindow.document;
+      doc.open();
+      doc.write(gist.files["index.html"].content);
+      doc.close();
+
+      var section = d3.select("section")
+
+      var title = gist.description || id
+
+      document.title = title +" with D3plus"
+
+      d3.select("h1.post-title").text(title)
+
+      var readme = gist.files["README.md"]
+      if (readme) {
+
+        var md = readme.content;
+        var text = [
+          "Featured on \[D3plus\.org\]\(\/\/d3plus\.org\/\)",
+          "Featured on \[D3plus\.org\]\(\/\/d3plus\.org\/\)\.",
+          "Featured on \[D3plus\.org\]\(\/\/d3plus\.org\)",
+          "Featured on \[D3plus\.org\]\(\/\/d3plus\.org\)\."
+        ];
+        text.forEach(function(t){
+          md = md.replace("\n\n" + t, "");
+          md = md.replace("\n" + t, "");
+          md = md.replace(t, "");
+        });
+
+        var converter = new Showdown.converter(),
+            html = converter.makeHtml(md)
+
+        section.select("p").html(html)
+
+      }
+
+    }
+
+  })
+
+</script>
+
+    </div>
+
+    <footer>
+      <h4>Sites that use D3plus:</h4>
+      <a href="http://datausa.io/" target="_blank">
+        <img src="./Simple Box and Whisker with D3plus_files/datausa.png" width="130px">
+      </a>
+      <a href="http://atlas.media.mit.edu/" target="_blank">
+        <img src="./Simple Box and Whisker with D3plus_files/oec.png" width="150px">
+      </a>
+      <a href="http://pantheon.media.mit.edu/" target="_blank">
+        <img src="./Simple Box and Whisker with D3plus_files/pantheon.png" width="150px">
+      </a>
+      <a href="http://www.dataviva.info/" target="_blank">
+        <img src="./Simple Box and Whisker with D3plus_files/dataviva.png" width="150px">
+      </a>
+    </footer>
+
+    <script type="text/javascript">
+
+      // Google Analytics
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46067436-1', 'd3plus.org');
+      ga('send', 'pageview');
+
+    </script>
+
+  
+
+</body></html>

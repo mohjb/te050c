@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'akzidenz-grotesk_bqmedium';
+    src: url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41313629/dirty/akzidenzgroteskbq-medium-webfont.eot');
+    src: url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41313629/dirty/akzidenzgroteskbq-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41313633/dirty/akzidenzgroteskbq-medium-webfont.woff2') format('woff2'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41312678/dirty/akzidenzgroteskbq-medium-webfont.woff') format('woff'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41318078/dirty/akzidenzgroteskbq-medium-webfont.ttf') format('truetype'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41312677/dirty/akzidenzgroteskbq-medium-webfont.svg#akzidenz-grotesk_bqmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'HelveticaNeueLTArabic-Bold';
+  src: url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41364441/dirty/HelveticaNeueLTArabic-Bold.eot?#iefix') format('embedded-opentype'),  
+  	   url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41364441/dirty/HelveticaNeueLTArabic-Bold.woff') format('woff'), 
+	   url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41363483/dirty/HelveticaNeueLTArabic-Bold.ttf')  format('truetype'), 
+	   url('https://s0.2mdn.net/ads/richmedia/studio/pv2/41364925/dirty/HelveticaNeueLTArabic-Bold.svg#HelveticaNeueLTArabic-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'ge_ss_twomedium';
+    src: url('https://s0.2mdn.net/ads/richmedia/studio/44370799/6521_20160719014400185_gesstwomedium-medium_1.eot');
+    src: url('https://s0.2mdn.net/ads/richmedia/studio/44370799/6521_20160719014400185_gesstwomedium-medium_1.eot?#iefix') format('embedded-opentype'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/44369596/6521_20160719014350880_gesstwomedium-medium_1.woff2') format('woff2'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/44372743/6521_20160719014340797_gesstwomedium-medium_1.woff') format('woff'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/44372479/6521_20160719014331279_gesstwomedium-medium_1.ttf') format('truetype'),
+         url('https://s0.2mdn.net/ads/richmedia/studio/44374209/6521_20160719014406736_gesstwomedium-medium_1.svg#ge_ss_twomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.crousel-warpper {
+	 width:215px;
+	position:relative;
+	margin-top: 62px;
+    margin-left: 36px;	
+}
+
+.crousel { position:relative; width:215px !important; height:108px;}
+.crousel, .crousel li { list-style:none; margin:0px; padding:0px;}
+
+.crousel li{ display:none; width:140px; height:108px; position:absolute; text-align:center; -webkit-transition: all 0.35s ease; -moz-transition: all 0.35s ease; -o-transition: all 0.35s ease; transition: all 0.35s ease;
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	-o-transform: scale(0.5);
+	transform: scale(0.5); opacity:0.5;
+}
+
+.crousel li.Isleft, .crousel li.Isright{ 
+ display:inline-block;
+}
+
+.crousel li.Isleft {
+	left:-40px;
+	top:12px;
+}
+
+.crousel li.Isright {
+	right:-49px;
+	top:12px;
+}
+
+.left-btn,.right-btn { cursor:pointer; z-index:999; }
+ 
+ 
+.crousel li.Isactive { opacity:1; display:inline-block; z-index:90; left: 42px; top: 11px;  text-align:center; -webkit-transform: scale(1); -moz-transform: scale(1); -o-transform: scale(1); transform: scale(1);}
+.crousel li.Isactive img { width:100%; max-width:inherit;}
+
+
+.crousel-txt { text-align:center;  font-family: 'akzidenz-grotesk_bqmedium'; color:#fccd34; font-size:17px; font-weight:normal;}
+.crousel-txt.arabic { font-family: 'HelveticaNeueLTArabic-Bold'; line-height:16px;}
+
+#headline {
+	font-family: 'akzidenz-grotesk_bqmedium';
+	color: rgb(255, 186, 0);
+	line-height: 25px;
+	font-size:12px;
+	text-transform:uppercase;
+}
+
+
+#headline.arabic {
+	font-family: 'ge_ss_twomedium';
+	line-height: 30px;
+	font-size:13px;
+}

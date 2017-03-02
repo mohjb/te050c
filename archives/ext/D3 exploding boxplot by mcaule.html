@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://mcaule.github.io/d3_exploding_boxplot/ -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>D3 exploding boxplot by mcaule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./D3 exploding boxplot by mcaule_files/normalize.css" media="screen" class="--apng-checked">
+    <link href="./D3 exploding boxplot by mcaule_files/css" rel="stylesheet" type="text/css" class="--apng-checked">
+    <link rel="stylesheet" type="text/css" href="./D3 exploding boxplot by mcaule_files/stylesheet.css" media="screen" class="--apng-checked">
+    <link rel="stylesheet" type="text/css" href="./D3 exploding boxplot by mcaule_files/github-light.css" media="screen" class="--apng-checked">
+    <script src="./D3 exploding boxplot by mcaule_files/require.js.download"></script>
+    <link href="./D3 exploding boxplot by mcaule_files/d3_exploding_boxplot.css" rel="stylesheet" type="text/css" class="--apng-checked">
+
+    <script type="text/javascript">
+
+  require.config({
+    baseUrl: ".",
+    paths:{
+      d3:'bower_components/d3/d3.min',
+      "d3-tip":'bower_components/d3-tip/index',
+      'd3-exploding-boxplot':'src/d3_exploding_boxplot'
+    },
+    shim:{
+      'd3-exploding-boxplot':{
+          deps:['d3','d3-tip']
+      },
+      'd3-tip':{
+        deps:['d3']
+      }
+    }
+  });
+  </script>
+  <style class="--apng-checked">
+  .gist{font-size:12px;line-height:16px;margin-bottom:0px;width:600px}
+  .gist-meta{display:none;}
+  </style>
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="d3" src="./D3 exploding boxplot by mcaule_files/d3.min.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="d3-tip" src="./D3 exploding boxplot by mcaule_files/index.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="d3-exploding-boxplot" src="./D3 exploding boxplot by mcaule_files/d3_exploding_boxplot.js.download"></script></head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">D3 exploding boxplot</h1>
+      <h2 class="project-tagline">A boxplot visualisation exploding into a scatter plot</h2>
+      <a href="https://github.com/mcaule/d3_exploding_boxplot" class="btn">View on GitHub</a>
+      <a href="https://github.com/mcaule/d3_exploding_boxplot/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mcaule/d3_exploding_boxplot/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="d3_exploding_boxplot" class="anchor" href="https://mcaule.github.io/d3_exploding_boxplot/#d3_exploding_boxplot" aria-hidden="true"><span class="octicon octicon-link"></span></a>d3 exploding boxplot</h1>
+
+<p>A boxplot visualisation exploding into a scatter plot</p>
+
+<h2>Demo !</h2>
+<p>Just test it, click on the boxplot ! </p>
+
+<div id="chartContainer">
+<svg width="600" height="480"><g><rect width="600" height="480" style="color: white; opacity: 0;"></rect></g><g transform="translate(40,10)"><g><g class="d3-exploding-boxplot boxcontent" transform="translate(28,0)"><g class="d3-exploding-boxplot outliers-points"></g><g class="d3-exploding-boxplot normal-points"></g><g class="d3-exploding-boxplot box"><rect class="d3-exploding-boxplot box" fill="#a6cee3" x="0" width="104" y="271.72259752173466" height="21.293786268854603"></rect><line class="d3-exploding-boxplot median line" x1="0" x2="104" y1="281.02778615037494" y2="281.02778615037494"></line><line class="d3-exploding-boxplot min line hline" x1="26" x2="78" y1="323.185138565787" y2="323.185138565787"></line><line class="d3-exploding-boxplot line min vline" x1="52" x2="52" y1="323.185138565787" y2="293.01638379058926"></line><line class="d3-exploding-boxplot max line hline" x1="26" x2="78" y1="249.38699073962357" y2="249.38699073962357"></line><line class="d3-exploding-boxplot line max vline" x1="52" x2="52" y1="271.72259752173466" y2="249.38699073962357"></line></g></g><g class="d3-exploding-boxplot boxcontent" transform="translate(158,0)"><g class="d3-exploding-boxplot outliers-points"></g><g class="d3-exploding-boxplot normal-points"></g><g class="d3-exploding-boxplot box"><rect class="d3-exploding-boxplot box" fill="#ff7f00" x="0" width="104" y="163.26452606249757" height="105.43892863569783"></rect><line class="d3-exploding-boxplot median line" x1="0" x2="104" y1="221.2992326979224" y2="221.2992326979224"></line><line class="d3-exploding-boxplot min line hline" x1="26" x2="78" y1="394.13897734219313" y2="394.13897734219313"></line><line class="d3-exploding-boxplot line min vline" x1="52" x2="52" y1="394.13897734219313" y2="268.7034546981954"></line><line class="d3-exploding-boxplot max line hline" x1="26" x2="78" y1="19.76848089636418" y2="19.76848089636418"></line><line class="d3-exploding-boxplot line max vline" x1="52" x2="52" y1="163.26452606249757" y2="19.76848089636418"></line></g></g><g class="d3-exploding-boxplot boxcontent" transform="translate(288,0)"><g class="d3-exploding-boxplot outliers-points"></g><g class="d3-exploding-boxplot normal-points"></g><g class="d3-exploding-boxplot box"><rect class="d3-exploding-boxplot box" fill="#b2df8a" x="0" width="104" y="167.693034854593" height="166.3175354184416"></rect><line class="d3-exploding-boxplot median line" x1="0" x2="104" y1="260.8815848776087" y2="260.8815848776087"></line><line class="d3-exploding-boxplot min line hline" x1="26" x2="78" y1="407.45323791766657" y2="407.45323791766657"></line><line class="d3-exploding-boxplot line min vline" x1="52" x2="52" y1="407.45323791766657" y2="334.0105702730346"></line><line class="d3-exploding-boxplot max line hline" x1="26" x2="78" y1="97.21511800655776" y2="97.21511800655776"></line><line class="d3-exploding-boxplot line max vline" x1="52" x2="52" y1="167.693034854593" y2="97.21511800655776"></line></g></g><g class="d3-exploding-boxplot boxcontent" transform="translate(418,0)"><g class="d3-exploding-boxplot outliers-points"><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="61" cy="335.2554529846782"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="59" cy="437.29300181998434"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="17" cy="171.82518147172985"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="57" cy="315.6602010971386"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="4" cy="371.13062789549986"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="74" cy="407.3375338516143"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="48" cy="325.33410771739966"></circle><circle class="d3-exploding-boxplot point" r="3" fill="#1f78b4" cx="78" cy="166.41397959724267"></circle></g><g class="d3-exploding-boxplot normal-points"></g><g class="d3-exploding-boxplot box"><rect class="d3-exploding-boxplot box" fill="#1f78b4" x="0" width="104" y="239.47756154853172" height="26.76737161421093"></rect><line class="d3-exploding-boxplot median line" x1="0" x2="104" y1="251.6553629993366" y2="251.6553629993366"></line><line class="d3-exploding-boxplot min line hline" x1="26" x2="78" y1="299.60609929564157" y2="299.60609929564157"></line><line class="d3-exploding-boxplot line min vline" x1="52" x2="52" y1="299.60609929564157" y2="266.24493316274265"></line><line class="d3-exploding-boxplot max line hline" x1="26" x2="78" y1="203.81864251664558" y2="203.81864251664558"></line><line class="d3-exploding-boxplot line max vline" x1="52" x2="52" y1="239.47756154853172" y2="203.81864251664558"></line></g></g></g><g class="d3-exploding-boxplot x axis" transform="translate(0,440)"><g class="tick" transform="translate(80,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">box1</text></g><g class="tick" transform="translate(210,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">box2</text></g><g class="tick" transform="translate(340,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">box3</text></g><g class="tick" transform="translate(470,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">box4</text></g><path class="domain" d="M0,6V0H550V6"></path><text x="275" dy=".71em" y="16" style="text-anchor: middle;">g</text></g><g class="d3-exploding-boxplot y axis"><g class="tick" transform="translate(0,408.5714285714286)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0</text></g><g class="tick" transform="translate(0,345.7142857142857)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">20</text></g><g class="tick" transform="translate(0,282.85714285714283)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">40</text></g><g class="tick" transform="translate(0,220)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">60</text></g><g class="tick" transform="translate(0,157.1428571428571)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">80</text></g><g class="tick" transform="translate(0,94.28571428571429)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">100</text></g><g class="tick" transform="translate(0,31.428571428571416)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">120</text></g><path class="domain" d="M-6,0H0V440H-6"></path><text transform="rotate(-90)" x="-230" dy=".71em" y="-35" style="text-anchor: middle;">v</text></g></g></svg></div>
+
+<p>(Double click reverts to boxplot)</p>
+
+<h2>Implementation</h2>
+
+<script src="./D3 exploding boxplot by mcaule_files/8086a0dd869edd63e2b9.js.download"></script><link rel="stylesheet" href="./D3 exploding boxplot by mcaule_files/gist-embed-04d41fe71632a896c1dd3e883de9f48941fad414d68185aa8df817b950873a05.css" class="--apng-checked"><div id="gist27429671" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-d3_exploding_boxplot_1-js" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-d3_exploding_boxplot_1-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>generate random data</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> box1 <span class="pl-k">=</span> <span class="pl-smi">d3</span>.<span class="pl-en">range</span>(<span class="pl-c1">100</span>).<span class="pl-en">map</span>(<span class="pl-smi">d3</span>.<span class="pl-smi">random</span>.<span class="pl-en">normal</span>(<span class="pl-c1">Math</span>.<span class="pl-c1">random</span>()<span class="pl-k">*</span><span class="pl-c1">100</span>,<span class="pl-c1">5</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC3" class="blob-code blob-code-inner js-file-line">            .<span class="pl-en">map</span>(<span class="pl-k">function</span>(<span class="pl-smi">d</span>,<span class="pl-smi">i</span>){<span class="pl-k">return</span> {v<span class="pl-k">:</span>d,g<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>box1<span class="pl-pds">'</span></span>,t<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>pt 1<span class="pl-pds">'</span></span><span class="pl-k">+</span>i}})</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> box2 <span class="pl-k">=</span> <span class="pl-smi">d3</span>.<span class="pl-en">range</span>(<span class="pl-c1">100</span>).<span class="pl-en">map</span>(<span class="pl-smi">d3</span>.<span class="pl-smi">random</span>.<span class="pl-en">normal</span>(<span class="pl-c1">Math</span>.<span class="pl-c1">random</span>()<span class="pl-k">*</span><span class="pl-c1">100</span>,<span class="pl-c1">30</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC6" class="blob-code blob-code-inner js-file-line">            .<span class="pl-en">map</span>(<span class="pl-k">function</span>(<span class="pl-smi">d</span>,<span class="pl-smi">i</span>){<span class="pl-k">return</span> {v<span class="pl-k">:</span>d,g<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>box2<span class="pl-pds">'</span></span>,t<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>pt 2<span class="pl-pds">'</span></span><span class="pl-k">+</span>i}})</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> box3 <span class="pl-k">=</span> <span class="pl-smi">d3</span>.<span class="pl-en">range</span>(<span class="pl-c1">100</span>).<span class="pl-en">map</span>(<span class="pl-k">function</span>(){<span class="pl-k">return</span> <span class="pl-c1">Math</span>.<span class="pl-c1">random</span>()<span class="pl-k">*</span><span class="pl-c1">100</span>})</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC9" class="blob-code blob-code-inner js-file-line">            .<span class="pl-en">map</span>(<span class="pl-k">function</span>(<span class="pl-smi">d</span>,<span class="pl-smi">i</span>){<span class="pl-k">return</span> {v<span class="pl-k">:</span>d,g<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>box3<span class="pl-pds">'</span></span>,t<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>pt 3<span class="pl-pds">'</span></span><span class="pl-k">+</span>i}})</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC10" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> with outliers</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> box4 <span class="pl-k">=</span> <span class="pl-smi">d3</span>.<span class="pl-en">range</span>(<span class="pl-c1">80</span>).<span class="pl-en">map</span>(<span class="pl-smi">d3</span>.<span class="pl-smi">random</span>.<span class="pl-en">normal</span>(<span class="pl-c1">50</span>,<span class="pl-c1">5</span>))</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC12" class="blob-code blob-code-inner js-file-line">          .<span class="pl-c1">concat</span>(<span class="pl-smi">d3</span>.<span class="pl-en">range</span>(<span class="pl-c1">20</span>).<span class="pl-en">map</span>(<span class="pl-smi">d3</span>.<span class="pl-smi">random</span>.<span class="pl-en">normal</span>(<span class="pl-c1">50</span>,<span class="pl-c1">25</span>)))</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC13" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">map</span>(<span class="pl-k">function</span>(<span class="pl-smi">d</span>,<span class="pl-smi">i</span>){<span class="pl-k">return</span> {v<span class="pl-k">:</span>d,g<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>box4<span class="pl-pds">'</span></span>,t<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>pt 4<span class="pl-pds">'</span></span><span class="pl-k">+</span>i}})</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC14" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC15" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> data <span class="pl-k">=</span> <span class="pl-smi">box1</span>.<span class="pl-c1">concat</span>(box2).<span class="pl-c1">concat</span>(box3).<span class="pl-c1">concat</span>(box4)</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC16" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> chart(data,aes)</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> aesthetic :</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> y : point's value on y axis</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> group : how to group data on x axis</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> color : color of the point / boxplot</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span> label : displayed text in toolbox</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-k">var</span> chart <span class="pl-k">=</span> <span class="pl-en">exploding_boxplot</span>(data,</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC24" class="blob-code blob-code-inner js-file-line">            {y<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>v<span class="pl-pds">'</span></span>,group<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>g<span class="pl-pds">'</span></span>,color<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>g<span class="pl-pds">'</span></span>,label<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>t<span class="pl-pds">'</span></span>})</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC25" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">//</span>call chart on a div</span></td>
+      </tr>
+      <tr>
+        <td id="file-d3_exploding_boxplot_1-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-d3_exploding_boxplot_1-js-LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-en">chart</span>(<span class="pl-s"><span class="pl-pds">'</span>#chartContainer<span class="pl-pds">'</span></span>)</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/mcaule/8086a0dd869edd63e2b9/raw/df76364d054b20f8edec944da5dad9c1390566de/d3_exploding_boxplot_1.js" style="float:right">view raw</a>
+        <a href="https://gist.github.com/mcaule/8086a0dd869edd63e2b9#file-d3_exploding_boxplot_1-js">d3_exploding_boxplot_1.js</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mcaule/d3_exploding_boxplot">D3 exploding boxplot</a> is maintained by <a href="https://github.com/mcaule">mcaule</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+    <script>
+
+    require(['d3-exploding-boxplot','d3'],function(exploding_boxplot,d3){
+
+    //generate random data
+    var box1 = d3.range(100).map(d3.random.normal(Math.random()*100,5))
+                .map(function(d,i){return {v:d,g:'box1',t:'pt 1'+i}})
+
+    var box2 = d3.range(100).map(d3.random.normal(Math.random()*100,30))
+                .map(function(d,i){return {v:d,g:'box2',t:'pt 2'+i}})
+
+    var box3 = d3.range(100).map(function(){return Math.random()*100})
+                .map(function(d,i){return {v:d,g:'box3',t:'pt 3'+i}})
+
+    var box4 = d3.range(80).map(d3.random.normal(50,5))
+              .concat(d3.range(20).map(d3.random.normal(50,25)))// with outliers
+              .map(function(d,i){return {v:d,g:'box4',t:'pt 4'+i}})
+
+    var data = box1.concat(box2).concat(box3).concat(box4)
+
+    // chart(data,aes)
+    // aesthetic :
+    // y : point's value on y axis
+    // group : how to group data on x axis
+    // color : color of the point / boxplot
+    // label : displayed text in toolbox
+    var chart = exploding_boxplot(data,{y:'v',group:'g',color:'g',label:'t'})
+
+    //call chart on a div
+    chart('#chartContainer')
+
+    })
+    </script>
+  
+
+<div class="d3-exploding-boxplot tip n" style="position: absolute; top: 1049.67px; opacity: 0; pointer-events: none; box-sizing: border-box; left: 636.5px;"> <span style="color:#1f78b4">pt 482</span><span style="color:#DDDDDD;"> : -9.139</span></div></body></html>

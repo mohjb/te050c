@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://bl.ocks.org/jensgrubert/7789216 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=1000">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mbostock">
+<meta property="og:url" content="http://bl.ocks.org/jensgrubert/7789216">
+<meta property="og:title" content="D3.js Boxplot with Axes and Labels">
+<meta property="og:description" content="Jens Grubert’s Block 7789216">
+<meta property="og:image" content="http://bl.ocks.org/jensgrubert/raw/7789216/2d40368c5e8dcc88f26e8e80e2128bd4c2adc942/thumbnail.png">
+<title>D3.js Boxplot with Axes and Labels - bl.ocks.org</title>
+<link rel="icon" href="http://bl.ocks.org/favicon.png">
+<style class="--apng-checked">
+
+@import url("/style.css");
+
+</style>
+
+</head><body><header>
+  <div class="column">
+    <div class="navigation">
+      <a href="http://bl.ocks.org/">Popular</a>
+      / <a href="http://bl.ocks.org/-/about">About</a>
+    </div>
+    <a class="user" href="http://bl.ocks.org/jensgrubert"><img class="avatar" src="./D3.js Boxplot with Axes and Labels - bl.ocks.org_files/1931629" width="30" height="30">Jens Grubert</a>’s
+    Block <a class="gist gist-id self" title="View Gist on GitHub." href="https://gist.github.com/jensgrubert/7789216">7789216</a>
+    ← <a class="gist-id" href="http://bl.ocks.org/mbostock/4061502">4061502</a>    <div class="date">Updated October 4, 2016</div>
+  </div>
+</header>
+
+<div class="column">
+  <h1>D3.js Boxplot with Axes and Labels</h1>
+  <div class="index">
+    <iframe sandbox="allow-popups allow-scripts allow-forms allow-same-origin" src="./D3.js Boxplot with Axes and Labels - bl.ocks.org_files/saved_resource.html" marginwidth="0" marginheight="0" style="height:500px;" scrolling="no"></iframe>
+  </div>
+  <div class="index-pop">
+    <a target="_blank" title="Open Block 7789216 a new window." href="http://bl.ocks.org/jensgrubert/raw/7789216">Open<svg height="16" width="12"><path d="M11 10h1v3c0 0.55-0.45 1-1 1H1c-0.55 0-1-0.45-1-1V3c0-0.55 0.45-1 1-1h3v1H1v10h10V10zM6 2l2.25 2.25-3.25 3.25 1.5 1.5 3.25-3.25 2.25 2.25V2H6z"></path></svg></a>
+  </div>
+  <div class="gist-readme" data-key="README.md"><p>A box-and-whisker plot with axes. Based on <a href="http://bl.ocks.org/4061502">Mike Bostock's</a> implementation.
+Instead of using individual svg elements as in Mike's implementation, here all boxplots are rendered with in one root element. 
+This makes it easy to add axes. </p>
+
+<p>Further differences between the two implementations are:</p>
+
+<ul>
+<li>visibility of boxplot labels can be switched with the labels variable</li>
+<li>CSV files are supported in which each column is an independent variable and each row contains measurements for all variables (see data.csv)</li>
+<li>transitions are not used here but can be easily added again</li>
+</ul></div>
+  <div class="gist-sources">
+    <div class="gist-source" data-key="index.html">
+      <h2>index.html<a name="index.html" class="anchor" href="http://bl.ocks.org/jensgrubert/7789216#index.html">#</a></h2>
+      <pre><code class="html xml"><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+
+<span class="tag">body</span> <span class="rules">{
+  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">"Helvetica Neue"</span>, Helvetica, Arial, sans-serif</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="rules">{
+  <span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">10</span>px sans-serif</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="tag">line</span>,
+<span class="class">.box</span> <span class="tag">rect</span>,
+<span class="class">.box</span> <span class="tag">circle</span> <span class="rules">{
+  <span class="rule"><span class="attribute">fill</span>:<span class="value"> steelblue</span>;</span>
+  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="number">#000</span></span>;</span>
+  <span class="rule"><span class="attribute">stroke-width</span>:<span class="value"> <span class="number">1</span>px</span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="class">.center</span> <span class="rules">{
+  <span class="rule"><span class="attribute">stroke-dasharray</span>:<span class="value"> <span class="number">3</span>,<span class="number">3</span></span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.box</span> <span class="class">.outlier</span> <span class="rules">{
+  <span class="rule"><span class="attribute">fill</span>:<span class="value"> none</span>;</span>
+  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="number">#000</span></span>;</span>
+<span class="rule">}</span></span>
+
+<span class="class">.axis</span> <span class="rules">{
+  <span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">12</span>px sans-serif</span>;</span>
+<span class="rule">}</span></span>
+ 
+<span class="class">.axis</span> <span class="tag">path</span>,
+<span class="class">.axis</span> <span class="tag">line</span> <span class="rules">{
+  <span class="rule"><span class="attribute">fill</span>:<span class="value"> none</span>;</span>
+  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="number">#000</span></span>;</span>
+  <span class="rule"><span class="attribute">shape-rendering</span>:<span class="value"> crispEdges</span>;</span>
+<span class="rule">}</span></span>
+ 
+<span class="class">.x</span><span class="class">.axis</span> <span class="tag">path</span> <span class="rules">{ 
+  <span class="rule"><span class="attribute">fill</span>:<span class="value"> none</span>;</span>
+  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="number">#000</span></span>;</span>
+  <span class="rule"><span class="attribute">shape-rendering</span>:<span class="value"> crispEdges</span>;</span>
+<span class="rule">}</span></span>
+
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://d3js.org/d3.v3.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"d3.v3.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"box.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> labels = <span class="literal">true</span>; <span class="comment">// show the text labels beside individual boxplots?</span>
+
+<span class="keyword">var</span> margin = {top: <span class="number">30</span>, right: <span class="number">50</span>, bottom: <span class="number">70</span>, left: <span class="number">50</span>};
+<span class="keyword">var</span>  width = <span class="number">800</span> - margin.left - margin.right;
+<span class="keyword">var</span> height = <span class="number">400</span> - margin.top - margin.bottom;
+	
+<span class="keyword">var</span> min = Infinity,
+    max = -Infinity;
+	
+<span class="comment">// parse in the data	</span>
+d3.csv(<span class="string">"data.csv"</span>, <span class="function"><span class="keyword">function</span><span class="params">(error, csv)</span> {</span>
+	<span class="comment">// using an array of arrays with</span>
+	<span class="comment">// data[n][2] </span>
+	<span class="comment">// where n = number of columns in the csv file </span>
+	<span class="comment">// data[i][0] = name of the ith column</span>
+	<span class="comment">// data[i][1] = array of values of ith column</span>
+
+	<span class="keyword">var</span> data = [];
+	data[<span class="number">0</span>] = [];
+	data[<span class="number">1</span>] = [];
+	data[<span class="number">2</span>] = [];
+	data[<span class="number">3</span>] = [];
+	<span class="comment">// add more rows if your csv file has more columns</span>
+
+	<span class="comment">// add here the header of the csv file</span>
+	data[<span class="number">0</span>][<span class="number">0</span>] = <span class="string">"Q1"</span>;
+	data[<span class="number">1</span>][<span class="number">0</span>] = <span class="string">"Q2"</span>;
+	data[<span class="number">2</span>][<span class="number">0</span>] = <span class="string">"Q3"</span>;
+	data[<span class="number">3</span>][<span class="number">0</span>] = <span class="string">"Q4"</span>;
+	<span class="comment">// add more rows if your csv file has more columns</span>
+
+	data[<span class="number">0</span>][<span class="number">1</span>] = [];
+	data[<span class="number">1</span>][<span class="number">1</span>] = [];
+	data[<span class="number">2</span>][<span class="number">1</span>] = [];
+	data[<span class="number">3</span>][<span class="number">1</span>] = [];
+  
+	csv.forEach(<span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+		<span class="keyword">var</span> v1 = Math.floor(x.Q1),
+			v2 = Math.floor(x.Q2),
+			v3 = Math.floor(x.Q3),
+			v4 = Math.floor(x.Q4);
+			<span class="comment">// add more variables if your csv file has more columns</span>
+			
+		<span class="keyword">var</span> rowMax = Math.max(v1, Math.max(v2, Math.max(v3,v4)));
+		<span class="keyword">var</span> rowMin = Math.min(v1, Math.min(v2, Math.min(v3,v4)));
+
+		data[<span class="number">0</span>][<span class="number">1</span>].push(v1);
+		data[<span class="number">1</span>][<span class="number">1</span>].push(v2);
+		data[<span class="number">2</span>][<span class="number">1</span>].push(v3);
+		data[<span class="number">3</span>][<span class="number">1</span>].push(v4);
+		 <span class="comment">// add more rows if your csv file has more columns</span>
+		 
+		<span class="keyword">if</span> (rowMax &gt; max) max = rowMax;
+		<span class="keyword">if</span> (rowMin &lt; min) min = rowMin;	
+	});
+  
+	<span class="keyword">var</span> chart = d3.box()
+		.whiskers(iqr(<span class="number">1.5</span>))
+		.height(height)	
+		.domain([min, max])
+		.showLabels(labels);
+
+	<span class="keyword">var</span> svg = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)
+		.attr(<span class="string">"width"</span>, width + margin.left + margin.right)
+		.attr(<span class="string">"height"</span>, height + margin.top + margin.bottom)
+		.attr(<span class="string">"class"</span>, <span class="string">"box"</span>)    
+		.append(<span class="string">"g"</span>)
+		.attr(<span class="string">"transform"</span>, <span class="string">"translate("</span> + margin.left + <span class="string">","</span> + margin.top + <span class="string">")"</span>);
+	
+	<span class="comment">// the x-axis</span>
+	<span class="keyword">var</span> x = d3.scale.ordinal()	   
+		.domain( data.map(<span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> console.log(d); <span class="keyword">return</span> d[<span class="number">0</span>] } ) )	    
+		.rangeRoundBands([<span class="number">0</span> , width], <span class="number">0.7</span>, <span class="number">0.3</span>); 		
+
+	<span class="keyword">var</span> xAxis = d3.svg.axis()
+		.scale(x)
+		.orient(<span class="string">"bottom"</span>);
+
+	<span class="comment">// the y-axis</span>
+	<span class="keyword">var</span> y = d3.scale.linear()
+		.domain([min, max])
+		.range([height + margin.top, <span class="number">0</span> + margin.top]);
+	
+	<span class="keyword">var</span> yAxis = d3.svg.axis()
+    .scale(y)
+    .orient(<span class="string">"left"</span>);
+
+	<span class="comment">// draw the boxplots	</span>
+	svg.selectAll(<span class="string">".box"</span>)	   
+      .data(data)
+	  .enter().append(<span class="string">"g"</span>)
+		.attr(<span class="string">"transform"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> <span class="string">"translate("</span> +  x(d[<span class="number">0</span>])  + <span class="string">","</span> + margin.top + <span class="string">")"</span>; } )
+      .call(chart.width(x.rangeBand())); 
+	
+	      
+	<span class="comment">// add a title</span>
+	svg.append(<span class="string">"text"</span>)
+        .attr(<span class="string">"x"</span>, (width / <span class="number">2</span>))             
+        .attr(<span class="string">"y"</span>, <span class="number">0</span> + (margin.top / <span class="number">2</span>))
+        .attr(<span class="string">"text-anchor"</span>, <span class="string">"middle"</span>)  
+        .style(<span class="string">"font-size"</span>, <span class="string">"18px"</span>) 
+        <span class="comment">//.style("text-decoration", "underline")  </span>
+        .text(<span class="string">"Revenue 2012"</span>);
+ 
+	 <span class="comment">// draw y axis</span>
+	svg.append(<span class="string">"g"</span>)
+        .attr(<span class="string">"class"</span>, <span class="string">"y axis"</span>)
+        .call(yAxis)
+		.append(<span class="string">"text"</span>) <span class="comment">// and text1</span>
+		  .attr(<span class="string">"transform"</span>, <span class="string">"rotate(-90)"</span>)
+		  .attr(<span class="string">"y"</span>, <span class="number">6</span>)
+		  .attr(<span class="string">"dy"</span>, <span class="string">".71em"</span>)
+		  .style(<span class="string">"text-anchor"</span>, <span class="string">"end"</span>)
+		  .style(<span class="string">"font-size"</span>, <span class="string">"16px"</span>) 
+		  .text(<span class="string">"Revenue in €"</span>);		
+	
+	<span class="comment">// draw x axis	</span>
+	svg.append(<span class="string">"g"</span>)
+      .attr(<span class="string">"class"</span>, <span class="string">"x axis"</span>)
+      .attr(<span class="string">"transform"</span>, <span class="string">"translate(0,"</span> + (height  + margin.top + <span class="number">10</span>) + <span class="string">")"</span>)
+      .call(xAxis)
+	  .append(<span class="string">"text"</span>)             <span class="comment">// text label for the x axis</span>
+        .attr(<span class="string">"x"</span>, (width / <span class="number">2</span>) )
+        .attr(<span class="string">"y"</span>,  <span class="number">10</span> )
+		.attr(<span class="string">"dy"</span>, <span class="string">".71em"</span>)
+        .style(<span class="string">"text-anchor"</span>, <span class="string">"middle"</span>)
+		.style(<span class="string">"font-size"</span>, <span class="string">"16px"</span>) 
+        .text(<span class="string">"Quarter"</span>); 
+});
+
+<span class="comment">// Returns a function to compute the interquartile range.</span>
+<span class="function"><span class="keyword">function</span> <span class="title">iqr</span><span class="params">(k)</span> {</span>
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span>
+    <span class="keyword">var</span> q1 = d.quartiles[<span class="number">0</span>],
+        q3 = d.quartiles[<span class="number">2</span>],
+        iqr = (q3 - q1) * k,
+        i = -<span class="number">1</span>,
+        j = d.length;
+    <span class="keyword">while</span> (d[++i] &lt; q1 - iqr);
+    <span class="keyword">while</span> (d[--j] &gt; q3 + iqr);
+    <span class="keyword">return</span> [i, j];
+  };
+}
+
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+    </div>
+    <div class="gist-source" data-key="box.js">
+      <h2>box.js<a name="box.js" class="anchor" href="http://bl.ocks.org/jensgrubert/7789216#box.js">#</a></h2>
+      <pre><code class="javascript">(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+
+<span class="comment">// Inspired by http://informationandvisualization.de/blog/box-plot</span>
+d3.box = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">var</span> width = <span class="number">1</span>,
+      height = <span class="number">1</span>,
+      duration = <span class="number">0</span>,
+      domain = <span class="literal">null</span>,
+      value = Number,
+      whiskers = boxWhiskers,
+      quartiles = boxQuartiles,
+	  showLabels = <span class="literal">true</span>, <span class="comment">// whether or not to show text labels</span>
+	  numBars = <span class="number">4</span>,
+	  curBar = <span class="number">1</span>,
+      tickFormat = <span class="literal">null</span>;
+
+  <span class="comment">// For each small multiple…</span>
+  <span class="function"><span class="keyword">function</span> <span class="title">box</span><span class="params">(g)</span> {</span>
+    g.each(<span class="function"><span class="keyword">function</span><span class="params">(data, i)</span> {</span>
+      <span class="comment">//d = d.map(value).sort(d3.ascending);</span>
+	  <span class="comment">//var boxIndex = data[0];</span>
+	  <span class="comment">//var boxIndex = 1;</span>
+	  <span class="keyword">var</span> d = data[<span class="number">1</span>].sort(d3.ascending);
+	  
+	 <span class="comment">// console.log(boxIndex); </span>
+	  <span class="comment">//console.log(d); </span>
+	  
+      <span class="keyword">var</span> g = d3.select(<span class="keyword">this</span>),
+          n = d.length,
+          min = d[<span class="number">0</span>],
+          max = d[n - <span class="number">1</span>];
+
+      <span class="comment">// Compute quartiles. Must return exactly 3 elements.</span>
+      <span class="keyword">var</span> quartileData = d.quartiles = quartiles(d);
+
+      <span class="comment">// Compute whiskers. Must return exactly 2 elements, or null.</span>
+      <span class="keyword">var</span> whiskerIndices = whiskers &amp;&amp; whiskers.call(<span class="keyword">this</span>, d, i),
+          whiskerData = whiskerIndices &amp;&amp; whiskerIndices.map(<span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> d[i]; });
+
+      <span class="comment">// Compute outliers. If no whiskers are specified, all data are "outliers".</span>
+      <span class="comment">// We compute the outliers as indices, so that we can join across transitions!</span>
+      <span class="keyword">var</span> outlierIndices = whiskerIndices
+          ? d3.range(<span class="number">0</span>, whiskerIndices[<span class="number">0</span>]).concat(d3.range(whiskerIndices[<span class="number">1</span>] + <span class="number">1</span>, n))
+          : d3.range(n);
+
+      <span class="comment">// Compute the new x-scale.</span>
+      <span class="keyword">var</span> x1 = d3.scale.linear()
+          .domain(domain &amp;&amp; domain.call(<span class="keyword">this</span>, d, i) || [min, max])
+          .range([height, <span class="number">0</span>]);
+
+      <span class="comment">// Retrieve the old x-scale, if this is an update.</span>
+      <span class="keyword">var</span> x0 = <span class="keyword">this</span>.__chart__ || d3.scale.linear()
+          .domain([<span class="number">0</span>, Infinity])
+		 <span class="comment">// .domain([0, max])</span>
+          .range(x1.range());
+
+      <span class="comment">// Stash the new scale.</span>
+      <span class="keyword">this</span>.__chart__ = x1;
+
+      <span class="comment">// Note: the box, median, and box tick elements are fixed in number,</span>
+      <span class="comment">// so we only have to handle enter and update. In contrast, the outliers</span>
+      <span class="comment">// and other elements are variable, so we need to exit them! Variable</span>
+      <span class="comment">// elements also fade in and out.</span>
+
+      <span class="comment">// Update center line: the vertical line spanning the whiskers.</span>
+      <span class="keyword">var</span> center = g.selectAll(<span class="string">"line.center"</span>)
+          .data(whiskerData ? [whiskerData] : []);
+
+	 <span class="comment">//vertical line</span>
+      center.enter().insert(<span class="string">"line"</span>, <span class="string">"rect"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"center"</span>)
+          .attr(<span class="string">"x1"</span>, width / <span class="number">2</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"x2"</span>, width / <span class="number">2</span>)
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">1</span>]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">1</span>]); });
+
+      center.transition()
+          .duration(duration)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">1</span>]); });
+
+      center.exit().transition()
+          .duration(duration)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .attr(<span class="string">"y1"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]); })
+          .attr(<span class="string">"y2"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">1</span>]); })
+          .remove();
+
+      <span class="comment">// Update innerquartile box.</span>
+      <span class="keyword">var</span> box = g.selectAll(<span class="string">"rect.box"</span>)
+          .data([quartileData]);
+
+      box.enter().append(<span class="string">"rect"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"box"</span>)
+          .attr(<span class="string">"x"</span>, <span class="number">0</span>)
+          .attr(<span class="string">"y"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">2</span>]); })
+          .attr(<span class="string">"width"</span>, width)
+          .attr(<span class="string">"height"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x0(d[<span class="number">0</span>]) - x0(d[<span class="number">2</span>]); })
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">2</span>]); })
+          .attr(<span class="string">"height"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]) - x1(d[<span class="number">2</span>]); });
+
+      box.transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">2</span>]); })
+          .attr(<span class="string">"height"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> {</span> <span class="keyword">return</span> x1(d[<span class="number">0</span>]) - x1(d[<span class="number">2</span>]); });
+
+      <span class="comment">// Update median line.</span>
+      <span class="keyword">var</span> medianLine = g.selectAll(<span class="string">"line.median"</span>)
+          .data([quartileData[<span class="number">1</span>]]);
+
+      medianLine.enter().append(<span class="string">"line"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"median"</span>)
+          .attr(<span class="string">"x1"</span>, <span class="number">0</span>)
+          .attr(<span class="string">"y1"</span>, x0)
+          .attr(<span class="string">"x2"</span>, width)
+          .attr(<span class="string">"y2"</span>, x0)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1);
+
+      medianLine.transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1);
+
+      <span class="comment">// Update whiskers.</span>
+      <span class="keyword">var</span> whisker = g.selectAll(<span class="string">"line.whisker"</span>)
+          .data(whiskerData || []);
+
+      whisker.enter().insert(<span class="string">"line"</span>, <span class="string">"circle, text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"whisker"</span>)
+          .attr(<span class="string">"x1"</span>, <span class="number">0</span>)
+          .attr(<span class="string">"y1"</span>, x0)
+          .attr(<span class="string">"x2"</span>, <span class="number">0</span> + width)
+          .attr(<span class="string">"y2"</span>, x0)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whisker.transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whisker.exit().transition()
+          .duration(duration)
+          .attr(<span class="string">"y1"</span>, x1)
+          .attr(<span class="string">"y2"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .remove();
+
+      <span class="comment">// Update outliers.</span>
+      <span class="keyword">var</span> outlier = g.selectAll(<span class="string">"circle.outlier"</span>)
+          .data(outlierIndices, Number);
+
+      outlier.enter().insert(<span class="string">"circle"</span>, <span class="string">"text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"outlier"</span>)
+          .attr(<span class="string">"r"</span>, <span class="number">5</span>)
+          .attr(<span class="string">"cx"</span>, width / <span class="number">2</span>)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x0(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x1(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      outlier.transition()
+          .duration(duration)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x1(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      outlier.exit().transition()
+          .duration(duration)
+          .attr(<span class="string">"cy"</span>, <span class="function"><span class="keyword">function</span><span class="params">(i)</span> {</span> <span class="keyword">return</span> x1(d[i]); })
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .remove();
+
+      <span class="comment">// Compute the tick format.</span>
+      <span class="keyword">var</span> format = tickFormat || x1.tickFormat(<span class="number">8</span>);
+
+      <span class="comment">// Update box ticks.</span>
+      <span class="keyword">var</span> boxTick = g.selectAll(<span class="string">"text.box"</span>)
+          .data(quartileData);
+	 <span class="keyword">if</span>(showLabels == <span class="literal">true</span>) {
+      boxTick.enter().append(<span class="string">"text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"box"</span>)
+          .attr(<span class="string">"dy"</span>, <span class="string">".3em"</span>)
+          .attr(<span class="string">"dx"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span> <span class="keyword">return</span> i &amp; <span class="number">1</span> ? <span class="number">6</span> : -<span class="number">6</span> })
+          .attr(<span class="string">"x"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span> <span class="keyword">return</span> i &amp; <span class="number">1</span> ?  + width : <span class="number">0</span> })
+          .attr(<span class="string">"y"</span>, x0)
+          .attr(<span class="string">"text-anchor"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d, i)</span> {</span> <span class="keyword">return</span> i &amp; <span class="number">1</span> ? <span class="string">"start"</span> : <span class="string">"end"</span>; })
+          .text(format)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, x1);
+	}
+		 
+      boxTick.transition()
+          .duration(duration)
+          .text(format)
+          .attr(<span class="string">"y"</span>, x1);
+
+      <span class="comment">// Update whisker ticks. These are handled separately from the box</span>
+      <span class="comment">// ticks because they may or may not exist, and we want don't want</span>
+      <span class="comment">// to join box ticks pre-transition with whisker ticks post-.</span>
+      <span class="keyword">var</span> whiskerTick = g.selectAll(<span class="string">"text.whisker"</span>)
+          .data(whiskerData || []);
+	<span class="keyword">if</span>(showLabels == <span class="literal">true</span>) {
+      whiskerTick.enter().append(<span class="string">"text"</span>)
+          .attr(<span class="string">"class"</span>, <span class="string">"whisker"</span>)
+          .attr(<span class="string">"dy"</span>, <span class="string">".3em"</span>)
+          .attr(<span class="string">"dx"</span>, <span class="number">6</span>)
+          .attr(<span class="string">"x"</span>, width)
+          .attr(<span class="string">"y"</span>, x0)
+          .text(format)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+        .transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+	}
+      whiskerTick.transition()
+          .duration(duration)
+          .text(format)
+          .attr(<span class="string">"y"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>);
+
+      whiskerTick.exit().transition()
+          .duration(duration)
+          .attr(<span class="string">"y"</span>, x1)
+          .style(<span class="string">"opacity"</span>, <span class="number">1</span>e-<span class="number">6</span>)
+          .remove();
+    });
+    d3.timer.flush();
+  }
+
+  box.width = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> width;
+    width = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.height = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> height;
+    height = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.tickFormat = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> tickFormat;
+    tickFormat = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.duration = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> duration;
+    duration = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.domain = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> domain;
+    domain = x == <span class="literal">null</span> ? x : d3.functor(x);
+    <span class="keyword">return</span> box;
+  };
+
+  box.value = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> value;
+    value = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.whiskers = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> whiskers;
+    whiskers = x;
+    <span class="keyword">return</span> box;
+  };
+  
+  box.showLabels = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> showLabels;
+    showLabels = x;
+    <span class="keyword">return</span> box;
+  };
+
+  box.quartiles = <span class="function"><span class="keyword">function</span><span class="params">(x)</span> {</span>
+    <span class="keyword">if</span> (!arguments.length) <span class="keyword">return</span> quartiles;
+    quartiles = x;
+    <span class="keyword">return</span> box;
+  };
+
+  <span class="keyword">return</span> box;
+};
+
+<span class="function"><span class="keyword">function</span> <span class="title">boxWhiskers</span><span class="params">(d)</span> {</span>
+  <span class="keyword">return</span> [<span class="number">0</span>, d.length - <span class="number">1</span>];
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">boxQuartiles</span><span class="params">(d)</span> {</span>
+  <span class="keyword">return</span> [
+    d3.quantile(d, .<span class="number">25</span>),
+    d3.quantile(d, .<span class="number">5</span>),
+    d3.quantile(d, .<span class="number">75</span>)
+  ];
+}
+
+})();
+</code></pre>
+    </div>
+    <div class="gist-source" data-key="data.csv">
+      <h2>data.csv<a name="data.csv" class="anchor" href="http://bl.ocks.org/jensgrubert/7789216#data.csv">#</a></h2>
+      <pre><code class="csv undefined">Q1,Q2,Q3,Q4
+20000,15000,8000,20000
+9879,9323,3294,5629
+5070,9395,17633,5752
+7343,8675,12121,7557
+9136,5354,4319,5125
+7943,6725,18712,5116
+10546,10899,17270,5828
+9385,9365,13676,6014
+8669,8238,6587,5995
+4000,7446,16754,8905
+</code></pre>
+    </div>
+  </div>
+  <div class="gist-license">
+    <h2>LICENSE<a name="license" class="anchor" href="http://bl.ocks.org/jensgrubert/7789216#license">#</a></h2>
+    This block appears to have <a target="_blank" href="http://choosealicense.com/no-license/">no license</a>. Please contact <a target="_blank" href="https://github.com/jensgrubert">the author</a> to request a license.
+  </div>
+</div>
+
+<script src="./D3.js Boxplot with Axes and Labels - bl.ocks.org_files/d3.v3.min.js.download"></script>
+<script src="./D3.js Boxplot with Axes and Labels - bl.ocks.org_files/highlight.min.js.download"></script>
+<script>
+
+var gist = {"public":true,"sha":"2d40368c5e8dcc88f26e8e80e2128bd4c2adc942","files":{"README.md":{"language":"Markdown","type":"text/plain","filename":"README.md","size":581,"sha":"f68f85a0b8085fbd37b3a01a4001bb9c9f0eeade"},"box.js":{"language":"JavaScript","type":"application/javascript","filename":"box.js","size":9093,"sha":"c34cbe2c01d764534a59d05cc28eee41436a7b90"},"data.csv":{"language":"CSV","type":"text/csv","filename":"data.csv","size":223,"sha":"ff3b804fc8f18f2385a6b23e799dc88642194f8a"},"index.html":{"language":"HTML","type":"text/html","filename":"index.html","size":4478,"sha":"faceb1c6f6e19af0b2fb04bb98257c8a9031d883"},"thumbnail.png":{"language":null,"type":"image/png","filename":"thumbnail.png","size":7765,"sha":"751219107de72b67547eab84b7e95b2d5151c8cc"}},"created_at":"2013-12-04T15:16:27Z","updated_at":"2016-10-04T12:41:50Z","description":"D3.js Boxplot with Axes and Labels","owner":{"login":"jensgrubert"},"fork_of":{"id":"4061502","owner":{"login":"mbostock"}},"id":"7789216"};
+
+var files = d3.values(gist.files);
+
+d3.select(".gist-readme")
+    .data(files, function(d) { return d ? d.filename : this.getAttribute("data-key"); })
+    .each(function(d) {
+      var readme = d3.select(this);
+      d3.text("/jensgrubert/raw/7789216/2d40368c5e8dcc88f26e8e80e2128bd4c2adc942/" + d.filename, function(error, content) {
+        if (error) content = "Sorry, an error occurred.";
+        readme.html(new Showdown.converter().makeHtml(content));
+        readme.selectAll("code").each(function() { hljs.highlightBlock(this); });
+      });
+    });
+
+d3.selectAll(".gist-source")
+    .data(files, function(d) { return d ? d.filename : this.getAttribute("data-key"); })
+  .select("code")
+    .attr("class", function(d) { return d.language && (d.language === "JSON" ? "javascript" : d.language.toLowerCase()); })
+    .each(function(d) {
+      var code = d3.select(this);
+      d3.text("/jensgrubert/raw/7789216/2d40368c5e8dcc88f26e8e80e2128bd4c2adc942/" + (d.filename === "index.html" ? "" : d.filename), function(error, content) {
+        if (error) content = "Sorry, an error occurred.";
+        code.text(content);
+        hljs.highlightBlock(code.node());
+      });
+    });
+
+</script>
+
+<script>
+
+GoogleAnalyticsObject = "ga", ga = function() { ga.q.push(arguments); }, ga.q = [], ga.l = +new Date;
+ga("create", "UA-48272912-1", "auto");
+ga("send", "pageview");
+
+</script>
+<script async="" src="./D3.js Boxplot with Axes and Labels - bl.ocks.org_files/analytics.js.download"></script>
+</body></html>

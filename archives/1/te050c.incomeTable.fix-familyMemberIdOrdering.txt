@@ -1,0 +1,1221 @@
+
+
+update income set mem_id=7 where fs_id=73 and mem_id=8;
+update income set mem_id=8 where fs_id=73 and mem_id=9;
+update income set mem_id=9 where fs_id=73 and mem_id=10;
+update income set mem_id=10 where fs_id=73 and mem_id=11;
+
+update income set mem_id=2 where fs_id=80 and mem_id=5;
+
+update income set mem_id=2 where fs_id=96 and mem_id=3;
+
+update income set mem_id=3 where fs_id=130 and mem_id=4;
+
+update income set mem_id=6 where fs_id=146 and mem_id=9;
+update income set mem_id=7 where fs_id=146 and mem_id=12;
+
+update income set mem_id=2 where fs_id=167 and mem_id=3;
+update income set mem_id=3 where fs_id=167 and mem_id=4;
+update income set mem_id=4 where fs_id=167 and mem_id=5;
+update income set mem_id=5 where fs_id=167 and mem_id=6;
+update income set mem_id=6 where fs_id=167 and mem_id=10;
+update income set mem_id=7 where fs_id=167 and mem_id=11;
+update income set mem_id=8 where fs_id=167 and mem_id=12;
+update income set mem_id=9 where fs_id=167 and mem_id=13;
+
+update income set mem_id=3 where fs_id=172 and mem_id=5;
+
+update income set mem_id=4 where fs_id=177 and mem_id=5;
+
+update income set mem_id=5 where fs_id=179 and mem_id=9;
+update income set mem_id=6 where fs_id=179 and mem_id=10;
+
+update income set mem_id=3 where fs_id=185 and mem_id=4;
+update income set mem_id=4 where fs_id=185 and mem_id=9;
+
+update income set mem_id=4 where fs_id=195 and mem_id=7;
+update income set mem_id=5 where fs_id=195 and mem_id=8;
+update income set mem_id=6 where fs_id=195 and mem_id=13;
+
+update income set mem_id=2 where fs_id=201 and mem_id=3;
+
+update income set mem_id=2 where fs_id=202 and mem_id=7;
+
+update income set mem_id=2 where fs_id=215 and mem_id=3;
+
+update income set mem_id=3 where fs_id=225 and mem_id=4;
+update income set mem_id=4 where fs_id=225 and mem_id=5;
+update income set mem_id=5 where fs_id=225 and mem_id=7;
+
+update income set mem_id=2 where fs_id=234 and mem_id=3;
+update income set mem_id=3 where fs_id=234 and mem_id=5;
+update income set mem_id=4 where fs_id=234 and mem_id=6;
+
+update income set mem_id=2 where fs_id=237 and mem_id=4;
+update income set mem_id=3 where fs_id=237 and mem_id=5;
+update income set mem_id=4 where fs_id=237 and mem_id=9;
+
+update income set mem_id=2 where fs_id=241 and mem_id=7;
+update income set mem_id=3 where fs_id=241 and mem_id=8;
+
+update income set mem_id=3 where fs_id=262 and mem_id=6;
+
+update income set mem_id=5 where fs_id=278 and mem_id=6;
+
+update income set mem_id=2 where fs_id=295 and mem_id=4;
+
+update income set mem_id=2 where fs_id=297 and mem_id=3;
+
+update income set mem_id=5 where fs_id=313 and mem_id=7;
+update income set mem_id=6 where fs_id=313 and mem_id=8;
+
+update income set mem_id=4 where fs_id=314 and mem_id=5;
+update income set mem_id=5 where fs_id=314 and mem_id=6;
+
+update income set mem_id=2 where fs_id=320 and mem_id=3;
+update income set mem_id=3 where fs_id=320 and mem_id=4;
+update income set mem_id=4 where fs_id=320 and mem_id=5;
+
+update income set mem_id=2 where fs_id=338 and mem_id=3;
+
+update income set mem_id=2 where fs_id=358 and mem_id=5;
+
+update income set mem_id=2 where fs_id=376 and mem_id=7;
+
+update income set mem_id=2 where fs_id=478 and mem_id=3;
+
+update income set mem_id=2 where fs_id=544 and mem_id=3;
+
+update income set mem_id=2 where fs_id=631 and mem_id=5;
+update income set mem_id=3 where fs_id=631 and mem_id=6;
+
+update income set mem_id=2 where fs_id=632 and mem_id=3;
+
+update income set mem_id=1 where fs_id=642 and mem_id=3;
+
+update income set mem_id=2 where fs_id=643 and mem_id=3;
+update income set mem_id=3 where fs_id=643 and mem_id=4;
+
+update income set mem_id=2 where fs_id=655 and mem_id=3;
+
+update income set mem_id=3 where fs_id=660 and mem_id=4;
+
+update income set mem_id=2 where fs_id=680 and mem_id=6;
+update income set mem_id=3 where fs_id=680 and mem_id=7;
+
+update income set mem_id=2 where fs_id=682 and mem_id=3;
+
+update income set mem_id=2 where fs_id=685 and mem_id=3;
+update income set mem_id=3 where fs_id=685 and mem_id=4;
+
+update income set mem_id=2 where fs_id=695 and mem_id=7;
+
+update income set mem_id=4 where fs_id=722 and mem_id=5;
+
+update income set mem_id=2 where fs_id=729 and mem_id=3;
+
+update income set mem_id=4 where fs_id=745 and mem_id=6;
+
+update income set mem_id=2 where fs_id=760 and mem_id=6;
+
+update income set mem_id=3 where fs_id=786 and mem_id=6;
+
+update income set mem_id=2 where fs_id=799 and mem_id=3;
+
+update income set mem_id=4 where fs_id=800 and mem_id=5;
+update income set mem_id=5 where fs_id=800 and mem_id=6;
+update income set mem_id=6 where fs_id=800 and mem_id=7;
+
+update income set mem_id=2 where fs_id=809 and mem_id=3;
+update income set mem_id=3 where fs_id=809 and mem_id=4;
+
+update income set mem_id=2 where fs_id=824 and mem_id=3;
+update income set mem_id=3 where fs_id=824 and mem_id=5;
+
+update income set mem_id=4 where fs_id=832 and mem_id=6;
+update income set mem_id=5 where fs_id=832 and mem_id=7;
+
+update income set mem_id=4 where fs_id=854 and mem_id=6;
+update income set mem_id=5 where fs_id=854 and mem_id=7;
+
+update income set mem_id=2 where fs_id=868 and mem_id=3;
+
+update income set mem_id=2 where fs_id=870 and mem_id=3;
+
+update income set mem_id=2 where fs_id=890 and mem_id=3;
+
+update income set mem_id=2 where fs_id=921 and mem_id=3;
+update income set mem_id=3 where fs_id=921 and mem_id=4;
+
+update income set mem_id=2 where fs_id=937 and mem_id=3;
+
+update income set mem_id=2 where fs_id=957 and mem_id=3;
+
+update income set mem_id=2 where fs_id=964 and mem_id=3;
+update income set mem_id=3 where fs_id=964 and mem_id=4;
+update income set mem_id=4 where fs_id=964 and mem_id=5;
+
+update income set mem_id=4 where fs_id=968 and mem_id=5;
+update income set mem_id=5 where fs_id=968 and mem_id=6;
+update income set mem_id=6 where fs_id=968 and mem_id=7;
+
+update income set mem_id=2 where fs_id=978 and mem_id=3;
+update income set mem_id=3 where fs_id=978 and mem_id=4;
+
+update income set mem_id=1 where fs_id=983 and mem_id=2;
+
+update income set mem_id=3 where fs_id=993 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1037 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1046 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1055 and mem_id=3;
+update income set mem_id=3 where fs_id=1055 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1071 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1081 and mem_id=3;
+update income set mem_id=3 where fs_id=1081 and mem_id=4;
+
+update income set mem_id=3 where fs_id=1099 and mem_id=4;
+
+update income set mem_id=4 where fs_id=1100 and mem_id=6;
+update income set mem_id=5 where fs_id=1100 and mem_id=7;
+
+update income set mem_id=2 where fs_id=1101 and mem_id=4;
+update income set mem_id=3 where fs_id=1101 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1102 and mem_id=3;
+update income set mem_id=3 where fs_id=1102 and mem_id=4;
+update income set mem_id=4 where fs_id=1102 and mem_id=5;
+
+update income set mem_id=4 where fs_id=1106 and mem_id=5;
+
+update income set mem_id=3 where fs_id=1124 and mem_id=4;
+update income set mem_id=4 where fs_id=1124 and mem_id=6;
+update income set mem_id=5 where fs_id=1124 and mem_id=7;
+update income set mem_id=6 where fs_id=1124 and mem_id=8;
+update income set mem_id=7 where fs_id=1124 and mem_id=10;
+update income set mem_id=8 where fs_id=1124 and mem_id=11;
+
+update income set mem_id=3 where fs_id=1125 and mem_id=7;
+
+update income set mem_id=2 where fs_id=1131 and mem_id=3;
+update income set mem_id=3 where fs_id=1131 and mem_id=5;
+update income set mem_id=4 where fs_id=1131 and mem_id=6;
+update income set mem_id=5 where fs_id=1131 and mem_id=7;
+
+update income set mem_id=2 where fs_id=1133 and mem_id=5;
+
+update income set mem_id=6 where fs_id=1153 and mem_id=8;
+update income set mem_id=7 where fs_id=1153 and mem_id=9;
+
+update income set mem_id=1 where fs_id=1227 and mem_id=2;
+
+update income set mem_id=5 where fs_id=1231 and mem_id=6;
+
+update income set mem_id=3 where fs_id=1234 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1235 and mem_id=3;
+
+update income set mem_id=4 where fs_id=1241 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1257 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1270 and mem_id=3;
+update income set mem_id=3 where fs_id=1270 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1306 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1308 and mem_id=3;
+update income set mem_id=3 where fs_id=1308 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1316 and mem_id=3;
+update income set mem_id=3 where fs_id=1316 and mem_id=4;
+update income set mem_id=4 where fs_id=1316 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1319 and mem_id=3;
+
+update income set mem_id=5 where fs_id=1323 and mem_id=7;
+
+update income set mem_id=2 where fs_id=1329 and mem_id=3;
+
+update income set mem_id=3 where fs_id=1330 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1339 and mem_id=4;
+update income set mem_id=3 where fs_id=1339 and mem_id=10;
+
+update income set mem_id=2 where fs_id=1383 and mem_id=3;
+update income set mem_id=3 where fs_id=1383 and mem_id=4;
+update income set mem_id=4 where fs_id=1383 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1385 and mem_id=3;
+update income set mem_id=3 where fs_id=1385 and mem_id=4;
+update income set mem_id=4 where fs_id=1385 and mem_id=5;
+update income set mem_id=5 where fs_id=1385 and mem_id=6;
+update income set mem_id=6 where fs_id=1385 and mem_id=7;
+
+update income set mem_id=2 where fs_id=1387 and mem_id=3;
+update income set mem_id=3 where fs_id=1387 and mem_id=4;
+
+update income set mem_id=3 where fs_id=1398 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1422 and mem_id=3;
+update income set mem_id=3 where fs_id=1422 and mem_id=5;
+
+update income set mem_id=5 where fs_id=1423 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1440 and mem_id=3;
+update income set mem_id=3 where fs_id=1440 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1443 and mem_id=4;
+update income set mem_id=3 where fs_id=1443 and mem_id=5;
+update income set mem_id=4 where fs_id=1443 and mem_id=6;
+update income set mem_id=5 where fs_id=1443 and mem_id=8;
+update income set mem_id=6 where fs_id=1443 and mem_id=9;
+
+update income set mem_id=2 where fs_id=1464 and mem_id=3;
+update income set mem_id=3 where fs_id=1464 and mem_id=4;
+
+update income set mem_id=4 where fs_id=1470 and mem_id=6;
+update income set mem_id=5 where fs_id=1470 and mem_id=7;
+
+update income set mem_id=5 where fs_id=1473 and mem_id=7;
+update income set mem_id=6 where fs_id=1473 and mem_id=10;
+
+update income set mem_id=2 where fs_id=1481 and mem_id=3;
+
+update income set mem_id=4 where fs_id=1482 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1486 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1490 and mem_id=3;
+update income set mem_id=3 where fs_id=1490 and mem_id=4;
+update income set mem_id=4 where fs_id=1490 and mem_id=10;
+
+update income set mem_id=2 where fs_id=1497 and mem_id=3;
+update income set mem_id=3 where fs_id=1497 and mem_id=4;
+update income set mem_id=4 where fs_id=1497 and mem_id=5;
+update income set mem_id=5 where fs_id=1497 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1516 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1519 and mem_id=3;
+update income set mem_id=3 where fs_id=1519 and mem_id=4;
+update income set mem_id=4 where fs_id=1519 and mem_id=5;
+update income set mem_id=5 where fs_id=1519 and mem_id=6;
+update income set mem_id=6 where fs_id=1519 and mem_id=7;
+update income set mem_id=7 where fs_id=1519 and mem_id=8;
+update income set mem_id=8 where fs_id=1519 and mem_id=9;
+
+update income set mem_id=4 where fs_id=1530 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1556 and mem_id=3;
+update income set mem_id=3 where fs_id=1556 and mem_id=6;
+update income set mem_id=4 where fs_id=1556 and mem_id=7;
+
+update income set mem_id=2 where fs_id=1612 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1665 and mem_id=3;
+update income set mem_id=3 where fs_id=1665 and mem_id=4;
+
+update income set mem_id=3 where fs_id=1685 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1706 and mem_id=3;
+
+update income set mem_id=3 where fs_id=1737 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1738 and mem_id=3;
+update income set mem_id=3 where fs_id=1738 and mem_id=4;
+update income set mem_id=4 where fs_id=1738 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1750 and mem_id=3;
+update income set mem_id=3 where fs_id=1750 and mem_id=6;
+update income set mem_id=4 where fs_id=1750 and mem_id=12;
+
+update income set mem_id=2 where fs_id=1756 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1763 and mem_id=3;
+
+update income set mem_id=4 where fs_id=1773 and mem_id=5;
+update income set mem_id=5 where fs_id=1773 and mem_id=6;
+
+update income set mem_id=4 where fs_id=1781 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1821 and mem_id=3;
+update income set mem_id=3 where fs_id=1821 and mem_id=5;
+update income set mem_id=4 where fs_id=1821 and mem_id=6;
+
+update income set mem_id=4 where fs_id=1823 and mem_id=11;
+
+update income set mem_id=2 where fs_id=1825 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1828 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1841 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1843 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1872 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1886 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1896 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1900 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1905 and mem_id=9;
+
+update income set mem_id=2 where fs_id=1918 and mem_id=3;
+update income set mem_id=3 where fs_id=1918 and mem_id=4;
+update income set mem_id=4 where fs_id=1918 and mem_id=5;
+
+update income set mem_id=5 where fs_id=1922 and mem_id=10;
+
+update income set mem_id=5 where fs_id=1923 and mem_id=7;
+
+update income set mem_id=3 where fs_id=1924 and mem_id=5;
+update income set mem_id=4 where fs_id=1924 and mem_id=6;
+update income set mem_id=5 where fs_id=1924 and mem_id=10;
+
+update income set mem_id=4 where fs_id=1927 and mem_id=8;
+update income set mem_id=5 where fs_id=1927 and mem_id=9;
+
+update income set mem_id=4 where fs_id=1928 and mem_id=10;
+
+update income set mem_id=6 where fs_id=1931 and mem_id=8;
+update income set mem_id=7 where fs_id=1931 and mem_id=9;
+
+update income set mem_id=2 where fs_id=1938 and mem_id=3;
+update income set mem_id=3 where fs_id=1938 and mem_id=6;
+update income set mem_id=4 where fs_id=1938 and mem_id=7;
+update income set mem_id=5 where fs_id=1938 and mem_id=12;
+
+update income set mem_id=2 where fs_id=1944 and mem_id=3;
+update income set mem_id=3 where fs_id=1944 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1945 and mem_id=3;
+update income set mem_id=3 where fs_id=1945 and mem_id=4;
+
+update income set mem_id=2 where fs_id=1949 and mem_id=3;
+update income set mem_id=3 where fs_id=1949 and mem_id=4;
+
+update income set mem_id=4 where fs_id=1952 and mem_id=6;
+
+update income set mem_id=2 where fs_id=1966 and mem_id=3;
+
+update income set mem_id=2 where fs_id=1980 and mem_id=3;
+update income set mem_id=3 where fs_id=1980 and mem_id=5;
+
+update income set mem_id=2 where fs_id=1999 and mem_id=3;
+update income set mem_id=3 where fs_id=1999 and mem_id=6;
+
+update income set mem_id=3 where fs_id=2000 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2004 and mem_id=3;
+update income set mem_id=3 where fs_id=2004 and mem_id=5;
+update income set mem_id=4 where fs_id=2004 and mem_id=6;
+update income set mem_id=5 where fs_id=2004 and mem_id=7;
+update income set mem_id=6 where fs_id=2004 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2006 and mem_id=3;
+update income set mem_id=3 where fs_id=2006 and mem_id=6;
+update income set mem_id=4 where fs_id=2006 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2012 and mem_id=3;
+update income set mem_id=3 where fs_id=2012 and mem_id=4;
+
+update income set mem_id=3 where fs_id=2015 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2028 and mem_id=3;
+update income set mem_id=3 where fs_id=2028 and mem_id=4;
+
+update income set mem_id=3 where fs_id=2038 and mem_id=4;
+
+update income set mem_id=4 where fs_id=2062 and mem_id=13;
+
+update income set mem_id=2 where fs_id=2065 and mem_id=3;
+
+update income set mem_id=3 where fs_id=2067 and mem_id=4;
+
+update income set mem_id=2 where fs_id=2069 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2073 and mem_id=12;
+update income set mem_id=3 where fs_id=2073 and mem_id=13;
+update income set mem_id=4 where fs_id=2073 and mem_id=19;
+update income set mem_id=5 where fs_id=2073 and mem_id=21;
+
+update income set mem_id=4 where fs_id=2074 and mem_id=6;
+update income set mem_id=5 where fs_id=2074 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2076 and mem_id=3;
+update income set mem_id=3 where fs_id=2076 and mem_id=4;
+update income set mem_id=4 where fs_id=2076 and mem_id=5;
+update income set mem_id=5 where fs_id=2076 and mem_id=6;
+update income set mem_id=6 where fs_id=2076 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2079 and mem_id=11;
+
+update income set mem_id=4 where fs_id=2086 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2089 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2090 and mem_id=6;
+update income set mem_id=3 where fs_id=2090 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2098 and mem_id=3;
+update income set mem_id=3 where fs_id=2098 and mem_id=12;
+update income set mem_id=4 where fs_id=2098 and mem_id=13;
+
+update income set mem_id=3 where fs_id=2099 and mem_id=5;
+update income set mem_id=4 where fs_id=2099 and mem_id=7;
+
+update income set mem_id=3 where fs_id=2102 and mem_id=11;
+update income set mem_id=4 where fs_id=2102 and mem_id=12;
+
+update income set mem_id=5 where fs_id=2110 and mem_id=6;
+update income set mem_id=6 where fs_id=2110 and mem_id=7;
+
+update income set mem_id=4 where fs_id=2113 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2122 and mem_id=3;
+update income set mem_id=3 where fs_id=2122 and mem_id=8;
+
+update income set mem_id=4 where fs_id=2127 and mem_id=5;
+
+update income set mem_id=3 where fs_id=2130 and mem_id=4;
+
+update income set mem_id=7 where fs_id=2133 and mem_id=11;
+update income set mem_id=8 where fs_id=2133 and mem_id=12;
+update income set mem_id=9 where fs_id=2133 and mem_id=15;
+
+update income set mem_id=2 where fs_id=2137 and mem_id=3;
+
+update income set mem_id=4 where fs_id=2141 and mem_id=9;
+update income set mem_id=5 where fs_id=2141 and mem_id=10;
+
+update income set mem_id=2 where fs_id=2154 and mem_id=3;
+update income set mem_id=3 where fs_id=2154 and mem_id=4;
+update income set mem_id=4 where fs_id=2154 and mem_id=8;
+update income set mem_id=5 where fs_id=2154 and mem_id=10;
+update income set mem_id=6 where fs_id=2154 and mem_id=11;
+update income set mem_id=7 where fs_id=2154 and mem_id=15;
+
+update income set mem_id=4 where fs_id=2155 and mem_id=13;
+
+update income set mem_id=2 where fs_id=2158 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2167 and mem_id=4;
+update income set mem_id=3 where fs_id=2167 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2169 and mem_id=3;
+update income set mem_id=3 where fs_id=2169 and mem_id=7;
+
+update income set mem_id=4 where fs_id=2172 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2179 and mem_id=3;
+update income set mem_id=3 where fs_id=2179 and mem_id=4;
+
+update income set mem_id=4 where fs_id=2235 and mem_id=5;
+update income set mem_id=5 where fs_id=2235 and mem_id=6;
+
+update income set mem_id=4 where fs_id=2244 and mem_id=5;
+update income set mem_id=5 where fs_id=2244 and mem_id=6;
+update income set mem_id=6 where fs_id=2244 and mem_id=7;
+
+update income set mem_id=8 where fs_id=2245 and mem_id=9;
+update income set mem_id=9 where fs_id=2245 and mem_id=10;
+update income set mem_id=10 where fs_id=2245 and mem_id=11;
+update income set mem_id=11 where fs_id=2245 and mem_id=12;
+update income set mem_id=12 where fs_id=2245 and mem_id=13;
+update income set mem_id=13 where fs_id=2245 and mem_id=15;
+
+update income set mem_id=4 where fs_id=2247 and mem_id=6;
+update income set mem_id=5 where fs_id=2247 and mem_id=7;
+
+update income set mem_id=4 where fs_id=2250 and mem_id=5;
+update income set mem_id=5 where fs_id=2250 and mem_id=6;
+update income set mem_id=6 where fs_id=2250 and mem_id=7;
+update income set mem_id=7 where fs_id=2250 and mem_id=8;
+
+update income set mem_id=5 where fs_id=2255 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2259 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2262 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2263 and mem_id=3;
+update income set mem_id=3 where fs_id=2263 and mem_id=9;
+update income set mem_id=4 where fs_id=2263 and mem_id=10;
+update income set mem_id=5 where fs_id=2263 and mem_id=11;
+
+update income set mem_id=2 where fs_id=2264 and mem_id=3;
+update income set mem_id=3 where fs_id=2264 and mem_id=4;
+update income set mem_id=4 where fs_id=2264 and mem_id=5;
+update income set mem_id=5 where fs_id=2264 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2266 and mem_id=3;
+update income set mem_id=3 where fs_id=2266 and mem_id=4;
+update income set mem_id=4 where fs_id=2266 and mem_id=5;
+update income set mem_id=5 where fs_id=2266 and mem_id=6;
+update income set mem_id=6 where fs_id=2266 and mem_id=8;
+update income set mem_id=7 where fs_id=2266 and mem_id=14;
+
+update income set mem_id=2 where fs_id=2268 and mem_id=5;
+update income set mem_id=3 where fs_id=2268 and mem_id=9;
+
+update income set mem_id=2 where fs_id=2269 and mem_id=4;
+update income set mem_id=3 where fs_id=2269 and mem_id=5;
+update income set mem_id=4 where fs_id=2269 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2271 and mem_id=3;
+update income set mem_id=3 where fs_id=2271 and mem_id=4;
+update income set mem_id=4 where fs_id=2271 and mem_id=5;
+update income set mem_id=5 where fs_id=2271 and mem_id=6;
+update income set mem_id=6 where fs_id=2271 and mem_id=9;
+
+update income set mem_id=5 where fs_id=2272 and mem_id=7;
+
+update income set mem_id=6 where fs_id=2273 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2274 and mem_id=3;
+update income set mem_id=3 where fs_id=2274 and mem_id=9;
+
+update income set mem_id=2 where fs_id=2279 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2281 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2286 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2287 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2294 and mem_id=4;
+update income set mem_id=3 where fs_id=2294 and mem_id=5;
+update income set mem_id=4 where fs_id=2294 and mem_id=6;
+
+update income set mem_id=3 where fs_id=2297 and mem_id=6;
+
+update income set mem_id=5 where fs_id=2298 and mem_id=8;
+update income set mem_id=6 where fs_id=2298 and mem_id=9;
+update income set mem_id=7 where fs_id=2298 and mem_id=10;
+
+update income set mem_id=3 where fs_id=2299 and mem_id=11;
+
+update income set mem_id=3 where fs_id=2302 and mem_id=6;
+
+update income set mem_id=5 where fs_id=2308 and mem_id=6;
+
+update income set mem_id=4 where fs_id=2309 and mem_id=11;
+
+update income set mem_id=5 where fs_id=2312 and mem_id=6;
+
+update income set mem_id=4 where fs_id=2314 and mem_id=6;
+update income set mem_id=5 where fs_id=2314 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2317 and mem_id=3;
+update income set mem_id=3 where fs_id=2317 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2321 and mem_id=3;
+update income set mem_id=3 where fs_id=2321 and mem_id=4;
+update income set mem_id=4 where fs_id=2321 and mem_id=10;
+
+update income set mem_id=4 where fs_id=2324 and mem_id=9;
+
+update income set mem_id=2 where fs_id=2326 and mem_id=3;
+update income set mem_id=3 where fs_id=2326 and mem_id=7;
+update income set mem_id=4 where fs_id=2326 and mem_id=8;
+
+update income set mem_id=4 where fs_id=2332 and mem_id=6;
+update income set mem_id=5 where fs_id=2332 and mem_id=7;
+update income set mem_id=6 where fs_id=2332 and mem_id=8;
+update income set mem_id=7 where fs_id=2332 and mem_id=9;
+
+update income set mem_id=4 where fs_id=2333 and mem_id=8;
+update income set mem_id=5 where fs_id=2333 and mem_id=9;
+
+update income set mem_id=4 where fs_id=2335 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2337 and mem_id=4;
+update income set mem_id=3 where fs_id=2337 and mem_id=5;
+
+update income set mem_id=6 where fs_id=2343 and mem_id=18;
+update income set mem_id=7 where fs_id=2343 and mem_id=21;
+
+update income set mem_id=4 where fs_id=2348 and mem_id=5;
+update income set mem_id=5 where fs_id=2348 and mem_id=6;
+
+update income set mem_id=4 where fs_id=2350 and mem_id=5;
+update income set mem_id=5 where fs_id=2350 and mem_id=7;
+
+update income set mem_id=5 where fs_id=2351 and mem_id=13;
+
+update income set mem_id=4 where fs_id=2365 and mem_id=5;
+update income set mem_id=5 where fs_id=2365 and mem_id=6;
+
+update income set mem_id=5 where fs_id=2370 and mem_id=16;
+
+update income set mem_id=2 where fs_id=2405 and mem_id=3;
+update income set mem_id=3 where fs_id=2405 and mem_id=8;
+update income set mem_id=4 where fs_id=2405 and mem_id=9;
+
+update income set mem_id=4 where fs_id=2419 and mem_id=5;
+update income set mem_id=5 where fs_id=2419 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2420 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2423 and mem_id=5;
+update income set mem_id=3 where fs_id=2423 and mem_id=7;
+update income set mem_id=4 where fs_id=2423 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2424 and mem_id=3;
+update income set mem_id=3 where fs_id=2424 and mem_id=9;
+
+update income set mem_id=4 where fs_id=2425 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2426 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2440 and mem_id=8;
+update income set mem_id=3 where fs_id=2440 and mem_id=12;
+update income set mem_id=4 where fs_id=2440 and mem_id=13;
+
+update income set mem_id=4 where fs_id=2442 and mem_id=10;
+update income set mem_id=5 where fs_id=2442 and mem_id=11;
+update income set mem_id=6 where fs_id=2442 and mem_id=12;
+
+update income set mem_id=5 where fs_id=2451 and mem_id=12;
+
+update income set mem_id=3 where fs_id=2456 and mem_id=15;
+update income set mem_id=4 where fs_id=2456 and mem_id=16;
+update income set mem_id=5 where fs_id=2456 and mem_id=17;
+
+update income set mem_id=2 where fs_id=2457 and mem_id=3;
+update income set mem_id=3 where fs_id=2457 and mem_id=4;
+update income set mem_id=4 where fs_id=2457 and mem_id=5;
+update income set mem_id=5 where fs_id=2457 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2459 and mem_id=3;
+update income set mem_id=3 where fs_id=2459 and mem_id=4;
+update income set mem_id=4 where fs_id=2459 and mem_id=5;
+
+update income set mem_id=6 where fs_id=2463 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2466 and mem_id=3;
+update income set mem_id=3 where fs_id=2466 and mem_id=4;
+update income set mem_id=4 where fs_id=2466 and mem_id=5;
+
+update income set mem_id=3 where fs_id=2468 and mem_id=4;
+update income set mem_id=4 where fs_id=2468 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2469 and mem_id=3;
+update income set mem_id=3 where fs_id=2469 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2471 and mem_id=3;
+update income set mem_id=3 where fs_id=2471 and mem_id=4;
+
+update income set mem_id=2 where fs_id=2472 and mem_id=3;
+update income set mem_id=3 where fs_id=2472 and mem_id=4;
+
+update income set mem_id=2 where fs_id=2473 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2474 and mem_id=3;
+update income set mem_id=3 where fs_id=2474 and mem_id=4;
+
+update income set mem_id=2 where fs_id=2475 and mem_id=3;
+update income set mem_id=3 where fs_id=2475 and mem_id=4;
+
+update income set mem_id=3 where fs_id=2477 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2478 and mem_id=3;
+update income set mem_id=3 where fs_id=2478 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2482 and mem_id=3;
+update income set mem_id=3 where fs_id=2482 and mem_id=5;
+update income set mem_id=4 where fs_id=2482 and mem_id=6;
+
+update income set mem_id=2 where fs_id=2494 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2499 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2511 and mem_id=3;
+update income set mem_id=3 where fs_id=2511 and mem_id=4;
+
+update income set mem_id=2 where fs_id=2526 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2531 and mem_id=3;
+update income set mem_id=3 where fs_id=2531 and mem_id=5;
+update income set mem_id=4 where fs_id=2531 and mem_id=6;
+
+update income set mem_id=4 where fs_id=2537 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2538 and mem_id=3;
+update income set mem_id=3 where fs_id=2538 and mem_id=5;
+update income set mem_id=4 where fs_id=2538 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2542 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2551 and mem_id=3;
+update income set mem_id=3 where fs_id=2551 and mem_id=4;
+update income set mem_id=4 where fs_id=2551 and mem_id=5;
+update income set mem_id=5 where fs_id=2551 and mem_id=7;
+
+update income set mem_id=2 where fs_id=2552 and mem_id=3;
+update income set mem_id=3 where fs_id=2552 and mem_id=4;
+update income set mem_id=4 where fs_id=2552 and mem_id=6;
+
+update income set mem_id=4 where fs_id=2555 and mem_id=5;
+update income set mem_id=5 where fs_id=2555 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2560 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2563 and mem_id=3;
+update income set mem_id=3 where fs_id=2563 and mem_id=4;
+update income set mem_id=4 where fs_id=2563 and mem_id=5;
+update income set mem_id=5 where fs_id=2563 and mem_id=6;
+update income set mem_id=6 where fs_id=2563 and mem_id=7;
+update income set mem_id=7 where fs_id=2563 and mem_id=8;
+
+update income set mem_id=2 where fs_id=2598 and mem_id=3;
+update income set mem_id=3 where fs_id=2598 and mem_id=4;
+update income set mem_id=4 where fs_id=2598 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2685 and mem_id=3;
+
+update income set mem_id=3 where fs_id=2728 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2763 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2847 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2860 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2866 and mem_id=3;
+update income set mem_id=3 where fs_id=2866 and mem_id=4;
+
+update income set mem_id=2 where fs_id=2884 and mem_id=3;
+
+update income set mem_id=4 where fs_id=2898 and mem_id=5;
+
+update income set mem_id=2 where fs_id=2906 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2910 and mem_id=3;
+
+update income set mem_id=2 where fs_id=2919 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3175 and mem_id=3;
+update income set mem_id=3 where fs_id=3175 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3186 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3224 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3244 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3268 and mem_id=4;
+update income set mem_id=3 where fs_id=3268 and mem_id=5;
+update income set mem_id=4 where fs_id=3268 and mem_id=6;
+
+update income set mem_id=2 where fs_id=3308 and mem_id=3;
+update income set mem_id=3 where fs_id=3308 and mem_id=4;
+update income set mem_id=4 where fs_id=3308 and mem_id=6;
+update income set mem_id=5 where fs_id=3308 and mem_id=7;
+
+update income set mem_id=2 where fs_id=3314 and mem_id=6;
+
+update income set mem_id=2 where fs_id=3366 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3380 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3442 and mem_id=5;
+
+update income set mem_id=2 where fs_id=3496 and mem_id=3;
+update income set mem_id=3 where fs_id=3496 and mem_id=5;
+
+update income set mem_id=4 where fs_id=3503 and mem_id=9;
+
+update income set mem_id=6 where fs_id=3504 and mem_id=7;
+
+update income set mem_id=4 where fs_id=3506 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3507 and mem_id=4;
+update income set mem_id=3 where fs_id=3507 and mem_id=7;
+update income set mem_id=4 where fs_id=3507 and mem_id=11;
+update income set mem_id=5 where fs_id=3507 and mem_id=12;
+
+update income set mem_id=4 where fs_id=3544 and mem_id=8;
+update income set mem_id=5 where fs_id=3544 and mem_id=9;
+update income set mem_id=6 where fs_id=3544 and mem_id=10;
+update income set mem_id=7 where fs_id=3544 and mem_id=15;
+
+update income set mem_id=2 where fs_id=3554 and mem_id=3;
+update income set mem_id=3 where fs_id=3554 and mem_id=6;
+
+update income set mem_id=7 where fs_id=3555 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3560 and mem_id=3;
+update income set mem_id=3 where fs_id=3560 and mem_id=4;
+update income set mem_id=4 where fs_id=3560 and mem_id=5;
+
+update income set mem_id=2 where fs_id=3563 and mem_id=3;
+update income set mem_id=3 where fs_id=3563 and mem_id=4;
+update income set mem_id=4 where fs_id=3563 and mem_id=8;
+update income set mem_id=5 where fs_id=3563 and mem_id=9;
+update income set mem_id=6 where fs_id=3563 and mem_id=10;
+
+update income set mem_id=2 where fs_id=3567 and mem_id=3;
+update income set mem_id=3 where fs_id=3567 and mem_id=4;
+
+update income set mem_id=5 where fs_id=3568 and mem_id=11;
+
+update income set mem_id=2 where fs_id=3604 and mem_id=3;
+update income set mem_id=3 where fs_id=3604 and mem_id=9;
+update income set mem_id=4 where fs_id=3604 and mem_id=10;
+update income set mem_id=5 where fs_id=3604 and mem_id=12;
+
+update income set mem_id=2 where fs_id=3607 and mem_id=6;
+
+update income set mem_id=2 where fs_id=3613 and mem_id=3;
+update income set mem_id=3 where fs_id=3613 and mem_id=4;
+update income set mem_id=4 where fs_id=3613 and mem_id=5;
+
+update income set mem_id=4 where fs_id=3616 and mem_id=7;
+update income set mem_id=5 where fs_id=3616 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3621 and mem_id=8;
+update income set mem_id=3 where fs_id=3621 and mem_id=9;
+
+update income set mem_id=2 where fs_id=3627 and mem_id=3;
+update income set mem_id=3 where fs_id=3627 and mem_id=4;
+update income set mem_id=4 where fs_id=3627 and mem_id=5;
+update income set mem_id=5 where fs_id=3627 and mem_id=6;
+
+update income set mem_id=3 where fs_id=3648 and mem_id=6;
+update income set mem_id=4 where fs_id=3648 and mem_id=7;
+
+update income set mem_id=3 where fs_id=3653 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3655 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3656 and mem_id=3;
+update income set mem_id=3 where fs_id=3656 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3658 and mem_id=3;
+update income set mem_id=3 where fs_id=3658 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3659 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3661 and mem_id=3;
+update income set mem_id=3 where fs_id=3661 and mem_id=4;
+update income set mem_id=4 where fs_id=3661 and mem_id=5;
+update income set mem_id=5 where fs_id=3661 and mem_id=6;
+update income set mem_id=6 where fs_id=3661 and mem_id=7;
+
+update income set mem_id=2 where fs_id=3671 and mem_id=3;
+update income set mem_id=3 where fs_id=3671 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3683 and mem_id=3;
+update income set mem_id=3 where fs_id=3683 and mem_id=5;
+update income set mem_id=4 where fs_id=3683 and mem_id=6;
+update income set mem_id=5 where fs_id=3683 and mem_id=8;
+update income set mem_id=6 where fs_id=3683 and mem_id=9;
+
+update income set mem_id=2 where fs_id=3684 and mem_id=3;
+update income set mem_id=3 where fs_id=3684 and mem_id=4;
+
+update income set mem_id=3 where fs_id=3688 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3690 and mem_id=4;
+update income set mem_id=3 where fs_id=3690 and mem_id=5;
+update income set mem_id=4 where fs_id=3690 and mem_id=6;
+update income set mem_id=5 where fs_id=3690 and mem_id=10;
+
+update income set mem_id=4 where fs_id=3691 and mem_id=7;
+update income set mem_id=5 where fs_id=3691 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3692 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3697 and mem_id=3;
+update income set mem_id=3 where fs_id=3697 and mem_id=5;
+update income set mem_id=4 where fs_id=3697 and mem_id=6;
+
+update income set mem_id=2 where fs_id=3698 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3700 and mem_id=3;
+update income set mem_id=3 where fs_id=3700 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3702 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3703 and mem_id=3;
+update income set mem_id=3 where fs_id=3703 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3705 and mem_id=3;
+
+update income set mem_id=2 where fs_id=3709 and mem_id=3;
+update income set mem_id=3 where fs_id=3709 and mem_id=4;
+
+update income set mem_id=7 where fs_id=3723 and mem_id=9;
+update income set mem_id=8 where fs_id=3723 and mem_id=10;
+
+update income set mem_id=2 where fs_id=3724 and mem_id=3;
+update income set mem_id=3 where fs_id=3724 and mem_id=4;
+update income set mem_id=4 where fs_id=3724 and mem_id=5;
+update income set mem_id=5 where fs_id=3724 and mem_id=6;
+
+update income set mem_id=3 where fs_id=3730 and mem_id=7;
+
+update income set mem_id=2 where fs_id=3733 and mem_id=3;
+update income set mem_id=3 where fs_id=3733 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3741 and mem_id=5;
+
+update income set mem_id=4 where fs_id=3769 and mem_id=6;
+
+update income set mem_id=2 where fs_id=3783 and mem_id=3;
+update income set mem_id=3 where fs_id=3783 and mem_id=10;
+update income set mem_id=4 where fs_id=3783 and mem_id=11;
+
+update income set mem_id=3 where fs_id=3784 and mem_id=8;
+
+update income set mem_id=3 where fs_id=3786 and mem_id=9;
+update income set mem_id=4 where fs_id=3786 and mem_id=10;
+
+update income set mem_id=3 where fs_id=3789 and mem_id=4;
+
+update income set mem_id=3 where fs_id=3790 and mem_id=9;
+
+update income set mem_id=2 where fs_id=3805 and mem_id=3;
+update income set mem_id=3 where fs_id=3805 and mem_id=4;
+update income set mem_id=4 where fs_id=3805 and mem_id=5;
+
+update income set mem_id=7 where fs_id=3826 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3830 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3863 and mem_id=3;
+update income set mem_id=3 where fs_id=3863 and mem_id=4;
+update income set mem_id=4 where fs_id=3863 and mem_id=5;
+
+update income set mem_id=3 where fs_id=3881 and mem_id=4;
+update income set mem_id=4 where fs_id=3881 and mem_id=5;
+update income set mem_id=5 where fs_id=3881 and mem_id=6;
+
+update income set mem_id=3 where fs_id=3896 and mem_id=10;
+
+update income set mem_id=2 where fs_id=3898 and mem_id=3;
+update income set mem_id=3 where fs_id=3898 and mem_id=4;
+
+update income set mem_id=4 where fs_id=3901 and mem_id=5;
+update income set mem_id=5 where fs_id=3901 and mem_id=9;
+update income set mem_id=6 where fs_id=3901 and mem_id=10;
+
+update income set mem_id=4 where fs_id=3904 and mem_id=6;
+update income set mem_id=5 where fs_id=3904 and mem_id=7;
+update income set mem_id=6 where fs_id=3904 and mem_id=9;
+
+update income set mem_id=2 where fs_id=3905 and mem_id=3;
+update income set mem_id=3 where fs_id=3905 and mem_id=4;
+update income set mem_id=4 where fs_id=3905 and mem_id=5;
+update income set mem_id=5 where fs_id=3905 and mem_id=7;
+
+update income set mem_id=4 where fs_id=3906 and mem_id=7;
+update income set mem_id=5 where fs_id=3906 and mem_id=8;
+update income set mem_id=6 where fs_id=3906 and mem_id=9;
+update income set mem_id=7 where fs_id=3906 and mem_id=10;
+
+update income set mem_id=2 where fs_id=3909 and mem_id=3;
+update income set mem_id=3 where fs_id=3909 and mem_id=4;
+update income set mem_id=4 where fs_id=3909 and mem_id=7;
+update income set mem_id=5 where fs_id=3909 and mem_id=8;
+update income set mem_id=6 where fs_id=3909 and mem_id=12;
+update income set mem_id=7 where fs_id=3909 and mem_id=13;
+update income set mem_id=8 where fs_id=3909 and mem_id=17;
+update income set mem_id=9 where fs_id=3909 and mem_id=18;
+
+update income set mem_id=2 where fs_id=3910 and mem_id=3;
+
+update income set mem_id=3 where fs_id=3915 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3921 and mem_id=3;
+update income set mem_id=3 where fs_id=3921 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3922 and mem_id=3;
+update income set mem_id=3 where fs_id=3922 and mem_id=4;
+
+update income set mem_id=3 where fs_id=3929 and mem_id=4;
+
+update income set mem_id=4 where fs_id=3930 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3935 and mem_id=3;
+update income set mem_id=3 where fs_id=3935 and mem_id=5;
+
+update income set mem_id=2 where fs_id=3937 and mem_id=3;
+update income set mem_id=3 where fs_id=3937 and mem_id=9;
+
+update income set mem_id=2 where fs_id=3938 and mem_id=12;
+update income set mem_id=3 where fs_id=3938 and mem_id=13;
+update income set mem_id=4 where fs_id=3938 and mem_id=20;
+update income set mem_id=5 where fs_id=3938 and mem_id=24;
+update income set mem_id=6 where fs_id=3938 and mem_id=25;
+update income set mem_id=7 where fs_id=3938 and mem_id=28;
+
+update income set mem_id=6 where fs_id=3949 and mem_id=9;
+
+update income set mem_id=2 where fs_id=3950 and mem_id=5;
+update income set mem_id=3 where fs_id=3950 and mem_id=6;
+
+update income set mem_id=3 where fs_id=3953 and mem_id=4;
+update income set mem_id=4 where fs_id=3953 and mem_id=5;
+
+update income set mem_id=2 where fs_id=3954 and mem_id=3;
+update income set mem_id=3 where fs_id=3954 and mem_id=5;
+update income set mem_id=4 where fs_id=3954 and mem_id=6;
+update income set mem_id=5 where fs_id=3954 and mem_id=7;
+
+update income set mem_id=4 where fs_id=3955 and mem_id=6;
+
+update income set mem_id=3 where fs_id=3957 and mem_id=7;
+update income set mem_id=4 where fs_id=3957 and mem_id=8;
+
+update income set mem_id=3 where fs_id=3958 and mem_id=4;
+update income set mem_id=4 where fs_id=3958 and mem_id=6;
+update income set mem_id=5 where fs_id=3958 and mem_id=7;
+update income set mem_id=6 where fs_id=3958 and mem_id=9;
+update income set mem_id=7 where fs_id=3958 and mem_id=10;
+
+update income set mem_id=2 where fs_id=3959 and mem_id=3;
+update income set mem_id=3 where fs_id=3959 and mem_id=9;
+update income set mem_id=4 where fs_id=3959 and mem_id=10;
+update income set mem_id=5 where fs_id=3959 and mem_id=11;
+update income set mem_id=6 where fs_id=3959 and mem_id=12;
+
+update income set mem_id=4 where fs_id=3961 and mem_id=6;
+
+update income set mem_id=2 where fs_id=3964 and mem_id=3;
+
+update income set mem_id=3 where fs_id=3965 and mem_id=5;
+
+update income set mem_id=2 where fs_id=3973 and mem_id=4;
+
+update income set mem_id=2 where fs_id=3976 and mem_id=4;
+update income set mem_id=3 where fs_id=3976 and mem_id=5;
+
+update income set mem_id=5 where fs_id=3979 and mem_id=7;
+
+update income set mem_id=4 where fs_id=3980 and mem_id=7;
+update income set mem_id=5 where fs_id=3980 and mem_id=8;
+
+update income set mem_id=2 where fs_id=3982 and mem_id=4;
+update income set mem_id=3 where fs_id=3982 and mem_id=5;
+
+update income set mem_id=3 where fs_id=3989 and mem_id=4;
+
+update income set mem_id=4 where fs_id=4000 and mem_id=5;
+
+update income set mem_id=2 where fs_id=4001 and mem_id=5;
+update income set mem_id=3 where fs_id=4001 and mem_id=6;
+update income set mem_id=4 where fs_id=4001 and mem_id=7;
+update income set mem_id=5 where fs_id=4001 and mem_id=8;
+update income set mem_id=6 where fs_id=4001 and mem_id=9;
+
+update income set mem_id=2 where fs_id=4007 and mem_id=3;
+update income set mem_id=3 where fs_id=4007 and mem_id=7;
+
+update income set mem_id=4 where fs_id=4008 and mem_id=5;
+update income set mem_id=5 where fs_id=4008 and mem_id=6;
+
+update income set mem_id=2 where fs_id=4010 and mem_id=4;
+update income set mem_id=3 where fs_id=4010 and mem_id=6;
+update income set mem_id=4 where fs_id=4010 and mem_id=8;
+update income set mem_id=5 where fs_id=4010 and mem_id=9;
+update income set mem_id=6 where fs_id=4010 and mem_id=10;
+update income set mem_id=7 where fs_id=4010 and mem_id=12;
+update income set mem_id=8 where fs_id=4010 and mem_id=14;
+update income set mem_id=9 where fs_id=4010 and mem_id=16;
+
+update income set mem_id=3 where fs_id=4018 and mem_id=4;
+update income set mem_id=4 where fs_id=4018 and mem_id=5;
+update income set mem_id=5 where fs_id=4018 and mem_id=6;
+
+update income set mem_id=4 where fs_id=4021 and mem_id=5;
+update income set mem_id=5 where fs_id=4021 and mem_id=6;
+
+update income set mem_id=3 where fs_id=4023 and mem_id=9;
+
+update income set mem_id=3 where fs_id=4033 and mem_id=5;
+update income set mem_id=4 where fs_id=4033 and mem_id=7;
+update income set mem_id=5 where fs_id=4033 and mem_id=8;
+
+update income set mem_id=2 where fs_id=4038 and mem_id=3;
+
+update income set mem_id=2 where fs_id=4040 and mem_id=3;
+update income set mem_id=3 where fs_id=4040 and mem_id=4;
+update income set mem_id=4 where fs_id=4040 and mem_id=5;
+
+update income set mem_id=2 where fs_id=4042 and mem_id=7;
+update income set mem_id=3 where fs_id=4042 and mem_id=15;
+
+update income set mem_id=2 where fs_id=4043 and mem_id=3;
+
+update income set mem_id=4 where fs_id=4047 and mem_id=5;
+update income set mem_id=5 where fs_id=4047 and mem_id=7;
+
+update income set mem_id=7 where fs_id=4052 and mem_id=8;
+update income set mem_id=8 where fs_id=4052 and mem_id=9;
+
+update income set mem_id=2 where fs_id=4053 and mem_id=3;
+update income set mem_id=3 where fs_id=4053 and mem_id=4;
+update income set mem_id=4 where fs_id=4053 and mem_id=6;
+update income set mem_id=5 where fs_id=4053 and mem_id=7;
+
+update income set mem_id=2 where fs_id=4054 and mem_id=3;
+update income set mem_id=3 where fs_id=4054 and mem_id=5;
+
+update income set mem_id=2 where fs_id=4059 and mem_id=7;
+
+update income set mem_id=3 where fs_id=4063 and mem_id=4;
+update income set mem_id=4 where fs_id=4063 and mem_id=5;
+
+update income set mem_id=2 where fs_id=4064 and mem_id=8;
+update income set mem_id=3 where fs_id=4064 and mem_id=9;
+
+update income set mem_id=4 where fs_id=4088 and mem_id=9;
+
+update income set mem_id=2 where fs_id=4091 and mem_id=3;
+
+update income set mem_id=2 where fs_id=4092 and mem_id=3;
+update income set mem_id=3 where fs_id=4092 and mem_id=4;
+update income set mem_id=4 where fs_id=4092 and mem_id=5;
+
+update income set mem_id=4 where fs_id=4095 and mem_id=5;
+update income set mem_id=5 where fs_id=4095 and mem_id=6;
+
+update income set mem_id=2 where fs_id=4097 and mem_id=3;
+update income set mem_id=3 where fs_id=4097 and mem_id=4;
+
+update income set mem_id=6 where fs_id=4100 and mem_id=8;
+
+update income set mem_id=4 where fs_id=4102 and mem_id=7;
+
+update income set mem_id=2 where fs_id=4109 and mem_id=3;
+
+update income set mem_id=2 where fs_id=4124 and mem_id=3;
+update income set mem_id=3 where fs_id=4124 and mem_id=4;
+update income set mem_id=4 where fs_id=4124 and mem_id=6;
+
+update income set mem_id=2 where fs_id=4126 and mem_id=3;
+
+update income set mem_id=3 where fs_id=4131 and mem_id=6;
+update income set mem_id=4 where fs_id=4131 and mem_id=9;
+
+update income set mem_id=2 where fs_id=4135 and mem_id=3;
+
+update income set mem_id=2 where fs_id=4649 and mem_id=3;
+
+update income set mem_id=2 where fs_id=4659 and mem_id=3;
+update income set mem_id=3 where fs_id=4659 and mem_id=4;
+
+update income set mem_id=2 where fs_id=4672 and mem_id=3;
+update income set mem_id=3 where fs_id=4672 and mem_id=4;
+update income set mem_id=4 where fs_id=4672 and mem_id=5;
+
+update income set mem_id=2 where fs_id=4680 and mem_id=3;
