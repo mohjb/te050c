@@ -1,0 +1,93 @@
+<html>
+<body>
+<div id="drop">Drop a spreadsheet file here to see sheet data</div>
+<script src="./JS-XLSX Live Demo_files/xlsx.full.min.js.download"></script>
+<script>
+
+var drop = document.getElementById('drop');
+
+if(drop.addEventListener) {
+	drop.addEventListener('dragenter', handleDragover, false);
+	drop.addEventListener('dragover', handleDragover, false);
+	drop.addEventListener('drop', handleDrop, false);
+}
+rABS=true
+function handleDrop(e) {
+	e.stopPropagation();
+	e.preventDefault();
+	
+	var files = e.dataTransfer.files;
+	var f = files[0];
+	{
+		var reader = new FileReader();
+		var name = f.name;
+		reader.onload = function(e) {
+			if(typeof console !== 'undefined') console.log("onload", new Date(), rABS, 0);//use_worker
+			var data = e.target.result;
+			{
+				var wb;
+				if(rABS) {
+					wb = XLSX.read(data, {type: 'binary'});
+				} else {
+					//var arr = fixdata(data);
+					//wb = XLSX.read(btoa(arr), {type: 'base64'});
+				}
+				process_wb(wb);//console.log('handleDrop:onload',data)
+			}
+		};
+		if(rABS) reader.readAsBinaryString(f);
+		else reader.readAsArrayBuffer(f);
+		console.log('handleDrop:',f)
+	}
+}
+
+function handleDragover(e) {
+	e.stopPropagation();
+	e.preventDefault();
+	e.dataTransfer.dropEffect = 'copy';
+	console.log('handleDragover',e,e.dataTransfer)
+}
+
+
+function process_wb(wb) {
+	var result = [];
+	var data=wb.Workbook.Names.data
+		var sheetName=data.Ref.split('!')
+		if(sheetName[0][0]=='\'')
+		{	var x=sheetName[0]
+			,y=x.split('\'')
+			sheetName=y[1];
+		}
+		else sheetName=sheetName[0] //this line is not tested
+
+		var s=data.Ref
+		if(s.indexOf('!')!=-1)s=s.split('!')[1]
+		var range=XLSX.utils.decode_range(s)
+		var sheet=wb.Sheets[sheetName]
+
+		for(var row=0; row<= range.e.r - range.s.r ; row++ )
+		{result[row]=[]
+			for(var col=0; col<= range.e.c - range.s.c ; col++ )
+			{var address= XLSX.utils.encode_col( range.s.c+col  )+(range.s.r +1 + row)
+			 var cell=sheet[address]
+			 result[row][col]= cell ? cell.v: ''
+		}}
+		//this is where i can now convert the array to an html table
+		console.log('sheetName:',sheetName,result)
+
+}
+
+
+
+if(drop.addEventListener) {
+	drop.addEventListener('dragenter', handleDragover, false);
+	drop.addEventListener('dragover', handleDragover, false);
+	drop.addEventListener('drop', handleDrop, false);
+}
+
+
+
+
+</script>
+</body>
+</html>
